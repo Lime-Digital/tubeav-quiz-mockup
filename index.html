@@ -278,11 +278,7 @@ function renderLanding(){
       <p class="lead">כל סיפור אהבה מתחיל בהתאמה נכונה. ענִי על 4 שאלות קטנות, ונשדך אותך למוצר ה‑AHAVA שנברא בשבילך — עם כרטיס התאמה אישי.</p>
     </div>
     <div class="pad">
-      <div class="icons-row">
-        ${INTRO_ICONS.map(i=>`<div class="icon-card"><span class="icon-emoji">${i.emoji}</span>
-          <div class="icon-name">${i.name}</div><div class="icon-sub">${i.sub}</div></div>`).join("")}
-      </div>
-      <p class="fineprint" style="margin:20px 0 16px">4 שאלות · פחות מדקה · ובסוף מחכה לך <b>30% הנחה</b></p>
+      <p class="fineprint" style="margin:4px 0 16px">4 שאלות · פחות מדקה · ובסוף מחכה לך <b>30% הנחה</b></p>
       <button class="btn" onclick="startQuiz()">בואו נמצא התאמה</button>
       <p class="fineprint">לרגל טו באב · קוד הנחה <b>${COUPON}</b> · בתוקף לזמן מוגבל</p>
     </div>`;
