@@ -62,7 +62,7 @@
   h1{font-size:32px;line-height:1.14;margin:6px 0 14px}
   h1 .accent{color:var(--gold)}
   .lead{color:var(--muted);font-size:15.5px;line-height:1.65;margin:0 auto;max-width:410px;font-weight:300}
-  .icons-row{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:26px 0 4px}
+  .icons-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 4px}
   .icon-card{background:var(--inset);border:1px solid var(--line);border-radius:12px;padding:15px 6px 12px;text-align:center}
   .icon-emoji{font-size:22px;display:block;margin-bottom:8px}
   .icon-name{font-family:"Frank Ruhl Libre",serif;font-size:13px;font-weight:700;line-height:1.2}
@@ -102,7 +102,8 @@
     font-family:"Heebo";transition:border-color .18s,background .18s}
   .opt:hover{border-color:var(--gold);background:var(--inset)}
   .opt .o-emoji{width:44px;height:44px;flex:0 0 44px;border-radius:10px;display:flex;align-items:center;
-    justify-content:center;font-size:20px;background:var(--inset);border:1px solid var(--line)}
+    justify-content:center;font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:21px;
+    color:var(--gold);background:var(--inset);border:1px solid var(--line)}
   .opt:hover .o-emoji{background:#fff}
   .opt .o-text{flex:1}
   .opt .o-title{font-weight:500;font-size:16px;line-height:1.25}
@@ -191,83 +192,67 @@ const DISCOUNT = 0.30;
 
 const MATCHES = {
   glow: {
-    emoji:"✶", pct:96, loveStyle:"אהבה ממבט ראשון",
+    emoji:"✶", pct:96, loveStyle:"הקורנת · אהבה שמדליקה אור",
     name:"סרום הקריסטל Osmoter X6", line:"Crystal",
     tagline:"זוהר מיידי, ניצוץ שלא מפסיק לקרון — בדיוק כמו פרפרים בבטן.",
-    reading:"את מאמינה בקסם של הרגע הראשון. לא מחכה שבועות לתוצאה — רוצה לראות ניצוץ עכשיו. הזיווג המושלם שלך הוא תמצית המינרלים המרוכזת של ים המלח, שמדליקה את הזוהר הטבעי של העור ברגע. אהבה ממבט ראשון, מתחדשת בכל בוקר.",
-    bottle:"סרום\nקריסטל", price:329, why:"מרכך, מאיר ומחזיר זוהר תוך רגעים — ההתאהבות המיידית.",
+    reading:"את שייכת לאהבה שמאירה כל חדר. את אוהבת את הרגע שבו הפנים קורנות, האנרגיה גבוהה והביטחון העצמי בשיא. הזיווג המושלם שלך הוא תמצית המינרלים המרוכזת של ים המלח, שמדליקה את הזוהר הטבעי של העור, מאחדת את גוון העור ומשאירה אותו נקי וקורן. אור מבפנים, שמתחדש בכל בוקר.",
+    bottle:"סרום\nקריסטל", price:329, why:"מאיר, מאחד את גוון העור ומחזיר זוהר תוך רגעים.",
     support:[
       {bottle:"ג'ל\nניקוי", line:"Cleanse", name:"ג'ל ניקוי מינרלי", price:99, why:"מנקה בעדינות ומכין את הבמה לזוהר."},
-      {bottle:"קרם\nלחות", line:"Hydrate", name:"קרם לחות מינרלי", price:179, why:"נועל את הזוהר לכל היום."}
-    ]
-  },
-  timeless: {
-    emoji:"❖", pct:94, loveStyle:"אהבה שנבנית לאורך זמן",
-    name:"סרום pRetinol™", line:"pRetinol",
-    tagline:"מחויבות אמיתית — תוצאות שמעמיקות ומשתפרות ככל שעובר הזמן.",
-    reading:"את מאמינה באהבה שבונים לאט, יום אחרי יום, עד שהיא הופכת לבלתי מעורערת. הזיווג שלך הוא הרטינול העדין שמחליק קמטוטים ומחזק את העור בהדרגה — לא קסם של רגע, אלא הבטחה שמתקיימת. ככל שתתמידי, כך תתאהבי מחדש בעור שלך.",
-    bottle:"pRetinol\nסרום", price:349, why:"מחליק קווים דקים ומחזיר מוצקות — האהבה שמחזיקה מעמד.",
-    support:[
-      {bottle:"קרם\nלילה", line:"Night", name:"קרם לילה מתקן", price:219, why:"עובד בזמן שאת ישנה, מעמיק את התוצאה."},
-      {bottle:"קרם\nעיניים", line:"Eyes", name:"קרם עיניים ממצק", price:189, why:"מרכך את אזור העיניים העדין."}
+      {bottle:"סרום\nזוהר", line:"Radiance", name:"סרום זוהר מינרלי", price:229, why:"נועל את האפקט הקורן לכל היום."}
     ]
   },
   calm: {
-    emoji:"✦", pct:95, loveStyle:"אהבה רגועה ובטוחה",
+    emoji:"✦", pct:95, loveStyle:"הרכה · אהבה רגועה ועוטפת",
     name:"סרום חומצה היאלורונית", line:"Hyaluronic",
     tagline:"שלווה, רכות וביטחון — האהבה שעוטפת אותך ונותנת לך לנשום.",
-    reading:"את לא צריכה דרמה כדי להרגיש אהובה. את מחפשת רוגע, יציבות ומגע רך שתמיד שם. הזיווג שלך הוא חומצה היאלורונית שממלאת את העור בלחות עמוקה, מרגיעה ומחזירה איזון. אהבה שקטה, עמוקה, שמרגישה כמו בית.",
-    bottle:"היאלורון\nסרום", price:259, why:"מציף את העור בלחות ומרגיע — החיבוק הבטוח.",
+    reading:"את מחפשת רוגע, רכות ומגע משי שתמיד שם. אהבה שקטה ועמוקה, שמרגישה כמו בית. הזיווג שלך הוא חומצה היאלורונית שממלאת את העור בלחות אינסופית, מרגיעה ומשאירה אותו גמיש, רווי ונינוח. ריטואל עדין ועוטף, מהמגע הראשון ועד הלילה.",
+    bottle:"היאלורון\nסרום", price:259, why:"מציף את העור בלחות עמוקה ומרגיע — החיבוק הבטוח.",
     support:[
-      {bottle:"קרם\nלחות", line:"Hydrate", name:"קרם לחות עשיר", price:189, why:"שכבת לחות שעוטפת לאורך היום."},
+      {bottle:"קרם\nלחות", line:"Hydrate", name:"קרם לחות עשיר", price:189, why:"שכבת לחות משיית שעוטפת לאורך היום."},
       {bottle:"מי\nפנים", line:"Tonic", name:"מי פנים מינרליים", price:119, why:"מרעננים ומאזנים בין השלבים."}
     ]
   },
-  bold: {
-    emoji:"✷", pct:93, loveStyle:"אהבה לוהטת ונועזת",
-    name:"מסכת הבוץ המינרלי השחור", line:"Mineral Mud",
-    tagline:"תשוקה, חידוש והפתעה — האהבה שמציתה בך משהו חדש.",
-    reading:"את חיה בשביל הניצוץ, ההפתעה והאינטנסיביות. לא מפחדת לנער את השגרה ולנסות משהו נועז. הזיווג שלך הוא בוץ ים המלח השחור שמנקה לעומק, מחדש ומשאיר את העור רענן וזורח כאילו התאהבת מחדש. דרמטי, עוצמתי, בלתי נשכח.",
-    bottle:"מסכת\nבוץ", price:159, why:"מנקה לעומק ומחדש את העור — הניצוץ הלוהט.",
+  nourish: {
+    emoji:"❖", pct:94, loveStyle:"המחודשת · אהבה עמוקה ומחדשת",
+    name:"סרום pRetinol™ לחידוש", line:"pRetinol",
+    tagline:"פינוק עשיר ועוצמתי — אהבה שמשילה עייפות ומחדשת מהיסוד.",
+    reading:"את אוהבת את הפינוק האינטנסיבי, את המרקם החמאתי והעשיר, ואת תחושת ה'לידה מחדש' של העור. הזיווג שלך הוא הרטינול העדין שמשיל עייפות, מחליק קווים דקים ומחזיר מוצקות וחיוניות — מראה מורם, רענן וצעיר. אהבה עמוקה שמתעצמת ככל שמתמידים בה.",
+    bottle:"pRetinol\nסרום", price:349, why:"מחדש, מחליק קווים דקים ומחזיר מוצקות וחיוניות.",
     support:[
-      {bottle:"פילינג", line:"Exfoliate", name:"פילינג מינרלי מחדש", price:139, why:"מלטף וממריץ לפני המסכה."},
-      {bottle:"סרום\nזוהר", line:"Radiance", name:"סרום זוהר מינרלי", price:229, why:"נועל את אפקט החידוש."}
+      {bottle:"קרם\nלילה", line:"Night", name:"קרם לילה מזין ומתקן", price:219, why:"מרקם עשיר שעובד בזמן השינה ומעמיק את החידוש."},
+      {bottle:"מסכת\nבוץ", line:"Mineral Mud", name:"מסכת בוץ מינרלי", price:159, why:"מנקה לעומק ומעניק לעור לידה מחדש."}
     ]
   }
 };
 
 const INTRO_ICONS = [
-  {emoji:"✶", name:"ממבט ראשון", sub:"זוהר מיידי"},
-  {emoji:"❖", name:"לאורך זמן", sub:"מיצוק"},
-  {emoji:"✦", name:"רגועה", sub:"לחות"},
-  {emoji:"✷", name:"לוהטת", sub:"חידוש"}
+  {emoji:"✶", name:"הקורנת", sub:"זוהר"},
+  {emoji:"✦", name:"הרכה", sub:"לחות"},
+  {emoji:"❖", name:"המחודשת", sub:"חידוש"}
 ];
 
 const QUESTIONS = [
-  { title:"מה מושך אותך ממבט ראשון?", sub:"אין תשובה נכונה — רק את והלב שלך.",
+  { title:"מהי האווירה שתעטפי בה את הערב הקרוב שלך?", sub:"",
     options:[
-      {key:"glow",emoji:"✶",title:"ניצוץ וזוהר מיידי",desc:"משהו שמאיר את כל החדר"},
-      {key:"timeless",emoji:"❖",title:"עומק ויציבות",desc:"נוכחות שקטה שנשארת"},
-      {key:"calm",emoji:"✦",title:"רוגע ושלווה",desc:"תחושה של בית ובטחה"},
-      {key:"bold",emoji:"✷",title:"תשוקה והפתעה",desc:"ניצוץ שמצית משהו"} ]},
-  { title:"הדייט המושלם שלך נראה ככה:", sub:"",
+      {key:"calm",   title:"שלווה והתחדשות", desc:"ערב שקט ואינטימי בבית, עם נרות וריחות מרגיעים."},
+      {key:"glow",   title:"זוהר ואנרגיה",   desc:"אירוע חברתי מרגש, תחושה של התחדשות וביטחון עצמי."},
+      {key:"nourish",title:"פינוק אינטנסיבי",desc:"רגע של חסד, ניתוק מהעולם וטיפוח עמוק של הגוף."} ]},
+  { title:"כשמדברים על אהבה — אילו מרקמים גורמים לך להרגיש הכי בנוח עם עצמך?", sub:"",
     options:[
-      {key:"glow",emoji:"☀",title:"בוקר שטוף שמש על חוף הים",desc:"אור, מליחות וצחוק"},
-      {key:"timeless",emoji:"🍷",title:"ערב אינטימי עם יין ושיחה",desc:"שעות שעוברות כמו רגע"},
-      {key:"calm",emoji:"🛁",title:"בריחה שקטה לספא",desc:"רק נשימה ושקט"},
-      {key:"bold",emoji:"🧭",title:"הרפתקה ספונטנית בלי תכנון",desc:"לאן שהרגליים לוקחות"} ]},
-  { title:"מה הכי חשוב לך במערכת יחסים?", sub:"(גם עם העור שלך…)",
+      {key:"calm",   title:"משי וקלילות",   desc:"מגע עדין, נספג מהר, משאיר ניחוח רענן ומעודן."},
+      {key:"nourish",title:"עושר ופינוק",   desc:"מרקם חמאתי ועמוק שמלטף את העור ומעניק הזנה אינטנסיבית."},
+      {key:"glow",   title:"מינרליות חיה",  desc:"תחושה מקרקעת, נקייה ועוצמתית — כמו חיבור ישיר לטבע."} ]},
+  { title:"איזה ריטואל היית רוצה להעניק לאהובך (או לעצמך) לכבוד החג?", sub:"",
     options:[
-      {key:"glow",emoji:"✶",title:"שתמיד ארגיש זוהרת",desc:"מחמיא ומאיר"},
-      {key:"timeless",emoji:"⧖",title:"שתחזיק ותלך ותשתפר",desc:"נאמנות שמשתלמת"},
-      {key:"calm",emoji:"❍",title:"שתרגיע ותעטוף אותי",desc:"ביטחון ורכות"},
-      {key:"bold",emoji:"⚡",title:"שתצית בי ניצוץ ותפתיע",desc:"לעולם לא משעמם"} ]},
-  { title:"איך תרצי שהעור ירגיש בסוף הערב?", sub:"זאת השאלה שמכריעה את ההתאמה.",
+      {key:"glow",   title:"הארה",          desc:"להעניק רגע של זוהר, חיוניות ופנים קורנות."},
+      {key:"nourish",title:"התחדשות",       desc:"להשיל את העייפות ולהעניק לעור 'לידה מחדש' של לחות."},
+      {key:"calm",   title:"עטיפה של אהבה", desc:"רוגע מוחלט — טקס טיפוח מלא, מהמקלחת ועד הלילה."} ]},
+  { title:"מהו הדבר שהכי מעצים את היופי הטבעי שלך ביום-יום?", sub:"",
     options:[
-      {key:"glow",emoji:"✶",title:"זוהר וקורן",desc:"כאילו הדלקת אור מבפנים"},
-      {key:"timeless",emoji:"❖",title:"מוצק ומרוכך",desc:"חלק, מתוח, צעיר"},
-      {key:"calm",emoji:"✦",title:"לח, רגוע ועוטף",desc:"רך ומאוזן"},
-      {key:"bold",emoji:"✷",title:"מחודש ונקי לעומק",desc:"כמו התחלה חדשה"} ]}
+      {key:"calm",   title:"תחושת לחות אינסופית", desc:"עור גמיש, מלא ורווי לאורך כל היום."},
+      {key:"nourish",title:"חיוניות ומיצוק",      desc:"מראה מורם, רענן, נינוח וצעיר."},
+      {key:"glow",   title:"אחידות וזוהר",        desc:"גוון עור בהיר, נקי וקורן."} ]}
 ];
 
 let state = { step:"landing", qIndex:0, votes:[] };
@@ -319,8 +304,8 @@ function renderQuestion(){
         ${q.sub?`<p class="q-sub">${q.sub}</p>`:""}
       </div>
       <div class="options">
-        ${q.options.map(o=>`<button class="opt" onclick="pick('${o.key}')">
-          <span class="o-emoji">${o.emoji}</span>
+        ${q.options.map((o,i)=>`<button class="opt" onclick="pick('${o.key}')">
+          <span class="o-emoji">${["א","ב","ג"][i]}</span>
           <span class="o-text"><span class="o-title">${o.title}</span>${o.desc?`<span class="o-desc">${o.desc}</span>`:""}</span>
           <span class="o-arrow">‹</span></button>`).join("")}
       </div>
