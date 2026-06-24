@@ -9,8 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    /* AHAVA Tu B'Av — warm editorial palette (from the creative examples) */
-    --cream:#FAF6EF;
+    /* AHAVA Tu B'Av - warm editorial palette (from the creative examples) */
+    --cream:#D8CCBA;
     --sand:#EFE7D9;       /* warm beige band */
     --taupe:#E3D6C3;      /* deeper warm taupe (MEDIA 30% bg) */
     --inset:#F6F0E6;
@@ -61,13 +61,16 @@
 
   /* ---------- LANDING : photo-led hero (warm editorial, like the creatives) ---------- */
   .hero-photo{
-    position:relative;height:clamp(280px,44vh,380px);width:100%;
+    position:relative;height:clamp(300px,46vh,420px);width:100%;
     background-image:url("img/hero-landing.jpg");
-    background-size:contain;background-repeat:no-repeat;background-position:center;
+    background-size:cover;background-position:center;
     background-color:var(--sand);
   }
-  .hero-photo .hp-logo{position:absolute;top:16px;left:0;right:0;text-align:center;
-    font-weight:600;letter-spacing:.5em;font-size:14px;color:var(--ink);padding-right:.5em;opacity:.85}
+  .hero-photo .hp-logo{position:absolute;top:18px;left:50%;transform:translateX(-50%);
+    width:120px;height:auto;filter:brightness(0) invert(1) drop-shadow(0 1px 7px rgba(43,33,24,.5))}
+  .hero-photo .hp-title{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;
+    font-weight:800;font-size:clamp(34px,9vw,52px);letter-spacing:.01em;color:#9E2B2B;text-shadow:0 2px 10px rgba(255,255,255,.35)}
+  .hero-photo .hp-title .en{font-weight:700;letter-spacing:.04em}
   .hp-kicker{font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:700;margin:0 0 6px;text-align:center}
   .hero-h1{font-size:29px;font-weight:800;line-height:1.16;letter-spacing:-.02em;color:var(--ink);margin:0 0 4px;text-align:center}
   .hero-h1 .accent{color:var(--gold)}
@@ -80,7 +83,7 @@
   .promise b{color:var(--gold);font-weight:600}
   .promise .dot{width:3px;height:3px;border-radius:50%;background:var(--faint)}
 
-  /* buttons — AHAVA style */
+  /* buttons - AHAVA style */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;border:none;cursor:pointer;
     background:var(--ink);color:#fff;font-family:"Assistant";font-weight:500;font-size:14px;
@@ -155,7 +158,7 @@
   .result-persona{font-size:18px;font-weight:700;color:var(--ink2);margin:0 0 8px}
   .result-tag{color:var(--ink2);font-size:15px;line-height:1.6;margin:0 auto;max-width:400px;font-weight:400;font-family:"Assistant",sans-serif}
 
-  /* prominent coupon box — brief: "אזור הקופון בתיבה מעוצבת ובולטת" */
+  /* prominent coupon box - brief: "אזור הקופון בתיבה מעוצבת ובולטת" */
   .coupon{margin:24px 0 6px;border-radius:18px;background:var(--ink);color:#fff;padding:24px 18px 22px;text-align:center;position:relative;overflow:hidden}
   .coupon::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0%,rgba(196,162,101,.22),transparent 70%);pointer-events:none}
   .coupon .c-gift{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);position:relative}
@@ -211,6 +214,17 @@
     .btn.gold:hover{background:var(--gold);color:var(--ink)}
     .opt:active{border-color:var(--gold);background:var(--inset)}
   }
+  @media (min-width:760px){
+    .wrap{max-width:880px}
+    .hero-photo{height:clamp(420px,60vh,640px)}
+    .pad{padding:38px 60px 46px}
+    .hero-h1{font-size:40px}
+    .lead{font-size:16px;max-width:600px}
+    .q-title{font-size:31px}
+    .options{grid-template-columns:1fr 1fr;gap:12px}
+    .result-name{font-size:36px}
+    .reading{font-size:16px}
+  }
   @media (max-width:430px){
     .pad{padding:24px 18px 28px}
     h1{font-size:27px}
@@ -228,7 +242,7 @@
 
 <script>
 /* =====================================================================
-   AHAVA · "מצאי את השידוך המושלם לעור שלך" — ט״ו באב 2026
+   AHAVA · "מצאי את השידוך המושלם לעור שלך" - ט״ו באב 2026
    MOCKUP. Mineral-luxe brand system + soft Tu B'Av warm-romance accents.
    Copy from Iris's brief. Products/prices/handles are placeholders.
    Coupon: AHAVA (30% off). Promo window 21.07.2026–29.07.2026.
@@ -240,7 +254,7 @@ const STORE    = "https://www.ahava.co.il";
 const QUIZ_ID  = "tubeav-il", QUIZ_VER = "v1";
 const FINEPRINT = `המבצע בתוקף בין התאריכים 21.07.2026 ועד 29.07.2026 או עד גמר המלאי (המוקדם מביניהם) · ללא כפל מבצעים והנחות · בכפוף לתקנון · ט.ל.ח`;
 
-/* ---------- tracking (mirrors ahava-quiz-il/embed.js — matches Tzvi's GTM CE triggers) ---------- */
+/* ---------- tracking (mirrors ahava-quiz-il/embed.js - matches Tzvi's GTM CE triggers) ---------- */
 const GA4_ID = "G-FM811E6S87", FB_PIXEL = "1247741762404202";
 function dl(event,p){
   window.dataLayer = window.dataLayer || [];
@@ -271,26 +285,26 @@ function cartUrl(vids){
 /* ---- 3 personas (results). Each = a PAIR: hero + cheaper complement.
    variantId + price are REAL & IN-STOCK on ahava.co.il (fetched 2026-06-24). ---- */
 const MATCHES = {
-  calm: {  /* Pair 1 — "Quiet Calm" (track א') */
+  calm: {  /* Pair 1 - "Quiet Calm" (track א') */
     style:"הרכה", name:"שלווה ושקט",
-    tagline:"שלווה, רכות וביטחון — האהבה שעוטפת אותך בלי כובד.",
-    reading:"לפי התשובות שלך, את מחפשת רוגע ורכות — רגע שקט שמרגיש כמו בית. בחרנו עבורך זוג קליל ומרגיע: לחות מינרלית שמעניקה נוחות לאורך כל היום, ולצידה תחליב גוף עדין עם ניחוח ים שליו. הכול בלי כובד — בדיוק כמו שאת אוהבת.",
-    hero:{vid:"40575795527866", bottle:"Osmoter\nקרם", line:"Osmoter Concentrate", name:"קרם לחות Osmoter™ מרוכז", why:"לחות מינרלית קלילה והגנה מאור כחול — נוחות לאורך כל היום.", price:264, rating:4.9},
-    mate:{vid:"40575802638522", bottle:"תחליב\nגוף", line:"Mineral Body", name:"תחליב גוף מינרלי Sea-Kissed", why:"נספג מהר, ניחוח ים שליו — רכות בלי כובד.", price:149, rating:5.0}
+    tagline:"שלווה, רכות וביטחון - האהבה שעוטפת אותך בלי כובד.",
+    reading:"לפי התשובות שלך, את מחפשת רוגע ורכות - רגע שקט שמרגיש כמו בית. בחרנו עבורך זוג קליל ומרגיע: לחות מינרלית שמעניקה נוחות לאורך כל היום, ולצידה תחליב גוף עדין עם ניחוח ים שליו. הכול בלי כובד - בדיוק כמו שאת אוהבת.",
+    hero:{vid:"40575795527866", bottle:"Osmoter\nקרם", line:"Osmoter Concentrate", name:"קרם לחות Osmoter™ מרוכז", why:"לחות מינרלית קלילה והגנה מאור כחול - נוחות לאורך כל היום.", price:264, rating:4.9},
+    mate:{vid:"40575802638522", bottle:"תחליב\nגוף", line:"Mineral Body", name:"תחליב גוף מינרלי Sea-Kissed", why:"נספג מהר, ניחוח ים שליו - רכות בלי כובד.", price:149, rating:5.0}
   },
-  radiant: {  /* Pair 2 — "Radiant Energy" (track ב' / ד'-רענן) */
+  radiant: {  /* Pair 2 - "Radiant Energy" (track ב' / ד'-רענן) */
     style:"הקורנת", name:"זוהר ואנרגיה",
-    tagline:"זוהר, אנרגיה וחיוניות — האור שמוקרן ממך החוצה.",
+    tagline:"זוהר, אנרגיה וחיוניות - האור שמוקרן ממך החוצה.",
     reading:"לפי התשובות שלך, העור שלך משתוקק לאור. בחרנו עבורך זוג שמדליק את הזוהר הטבעי: סרום הקריסטל למראה 'עור זכוכית' קורן, ולצידו סרום עיניים שמפחית נפיחות ומאיר את המבט. בוקר ער, רענן ומלא חיים.",
-    hero:{vid:"40565506113722", bottle:"סרום\nקריסטל", line:"Crystal Osmoter X6", name:"סרום קריסטל Osmoter™ X6", why:"הירו של הזוהר — מראה 'עור זכוכית', ברק טבעי וחיוניות.", price:314, rating:4.8},
-    mate:{vid:"45358634827962", bottle:"סרום\nעיניים", line:"Osmoter Eye", name:"סרום עיניים Osmoter™ מרוכז", why:"מפחית נפיחות וכהויות ומאיר — מבט ער ורענן.", price:229, rating:4.8}
+    hero:{vid:"40565506113722", bottle:"סרום\nקריסטל", line:"Crystal Osmoter X6", name:"סרום קריסטל Osmoter™ X6", why:"הירו של הזוהר - מראה 'עור זכוכית', ברק טבעי וחיוניות.", price:314, rating:4.8},
+    mate:{vid:"45358634827962", bottle:"סרום\nעיניים", line:"Osmoter Eye", name:"סרום עיניים Osmoter™ מרוכז", why:"מפחית נפיחות וכהויות ומאיר - מבט ער ורענן.", price:229, rating:4.8}
   },
-  pampering: {  /* Pair 3 — "Wrapped Pampering" (track ג' / ד'-גוף) */
+  pampering: {  /* Pair 3 - "Wrapped Pampering" (track ג' / ד'-גוף) */
     style:"המפנקת", name:"פינוק עוטף",
-    tagline:"פינוק עשיר ועוטף — אהבה עמוקה מהמקלחת ועד הלילה.",
-    reading:"לפי התשובות שלך, העור שלך מחפש את התחושה העוטפת והמפנקת ביותר. בחרנו עבורך זוג עשיר: קרם הקריסטל העשיר ללחות אינטנסיבית וזוהר מיידי, ולצידו פילינג חמאת מלח שמתמוסס למגע חמאתי ומלטף — טקס שלם שמרגיע גוף ונפש.",
-    hero:{vid:"40737881915578", bottle:"קרם\nקריסטל", line:"Crystal Osmoter X6", name:"קרם פנים קריסטל Osmoter™ X6", why:"קרם פנים עשיר ועוטף — לחות אינטנסיבית וזוהר מיידי.", price:307, rating:4.7},
-    mate:{vid:"40565514600634", bottle:"פילינג\nחמאתי", line:"Dead Sea Scrub", name:"פילינג חמאת מלח", why:"פילינג חמאתי שמתמוסס למגע משיי ומלטף — טקס מהמקלחת ועד הלילה.", price:124, rating:4.9}
+    tagline:"פינוק עשיר ועוטף - אהבה עמוקה מהמקלחת ועד הלילה.",
+    reading:"לפי התשובות שלך, העור שלך מחפש את התחושה העוטפת והמפנקת ביותר. בחרנו עבורך זוג עשיר: קרם הקריסטל העשיר ללחות אינטנסיבית וזוהר מיידי, ולצידו פילינג חמאת מלח שמתמוסס למגע חמאתי ומלטף - טקס שלם שמרגיע גוף ונפש.",
+    hero:{vid:"40737881915578", bottle:"קרם\nקריסטל", line:"Crystal Osmoter X6", name:"קרם פנים קריסטל Osmoter™ X6", why:"קרם פנים עשיר ועוטף - לחות אינטנסיבית וזוהר מיידי.", price:307, rating:4.7},
+    mate:{vid:"40565514600634", bottle:"פילינג\nחמאתי", line:"Dead Sea Scrub", name:"פילינג חמאת מלח", why:"פילינג חמאתי שמתמוסס למגע משיי ומלטף - טקס מהמקלחת ועד הלילה.", price:124, rating:4.9}
   }
 };
 
@@ -341,14 +355,13 @@ function render(){
 function renderLanding(){
   stage.innerHTML = `
     <div class="hero-photo">
-      <div class="hp-logo">AHAVA</div>
+      <img class="hp-logo" src="img/ahava-logo.png" alt="AHAVA" />
+      <div class="hp-title">ט״ו <span class="en">ב-AHAVA</span></div>
     </div>
     <div class="pad" style="padding-top:22px">
-      <p class="hp-kicker">♥ &nbsp;לכבוד ט״ו באב · חג האהבה &nbsp;♥</p>
+      <p class="hp-kicker">לכבוד ט״ו באב · חג האהבה</p>
       <h1 class="hero-h1">מצאי את <span class="accent">השידוך המושלם</span> לעור שלך</h1>
-      ${ORN}
-      <p class="lead">אנחנו מאמינים שאהבה אמיתית מתחילה כשאת מרגישה הכי בנוח עם עצמך. עני על 4 שאלות קצרות, ונשדך לך את שגרת הטיפוח — על בסיס מינרלים מים המלח — שתרגיש לך הכי טבעית, נעימה ומדויקת.</p>
-      <div class="minerals">♥ אהבה &nbsp;·&nbsp; ✦ מינרלים מים המלח &nbsp;·&nbsp; ◇ טבע טהור</div>
+      <p class="lead" style="margin-top:12px">אנחנו מאמינים שאהבה אמיתית מתחילה כשאת מרגישה הכי בנוח עם עצמך. עני על 4 שאלות קצרות, ונשדך לך את שגרת הטיפוח שתרגיש לך הכי טבעית, נעימה ומדויקת - כזו שנועדה לחגוג את האישה שאת היום, מחר ובכל יום שתבחרי.</p>
       <div class="promise">
         <span>4 שאלות קצרות</span><span class="dot"></span>
         <span>פחות מדקה</span><span class="dot"></span>
@@ -449,7 +462,7 @@ function renderResult(){
         <button class="btn ghost" onclick="restart()" style="margin-top:8px">עשי את הקוויז שוב</button>
       </div>
 
-      <p class="share">אהבת? <a href="#" onclick="return false">שתפי חברה וגלו מי הזיווג שלה →</a></p>
+      <p class="share">אהבת? <a href="#" onclick="shareQuiz();return false">שתפי חברה וגלו מי הזיווג שלה ›</a></p>
       <p class="fineprint" style="margin-top:18px">*${FINEPRINT}</p>
     </div>`;
 }
@@ -468,6 +481,13 @@ function goBack(){
   else if(state.step==="question" && state.qIndex>0){ dl("quiz_navigation",{nav_direction:"back",from_step:"q"+(state.qIndex+1),to_step:"q"+state.qIndex}); state.qIndex--; }
   else { state.step="landing"; } render(); }
 function restart(){ state={step:"landing",qIndex:0,votes:[]}; render(); }
+function shareQuiz(){
+  const url="https://www.ahava.co.il/pages/tu-bav-quiz";
+  const txt="מצאתי את השידוך המושלם לעור שלי ב-AHAVA לכבוד ט״ו באב 💝 בואי תגלי מי שלך:";
+  dl("quiz_share",{method:"result_link"});
+  if(navigator.share){ navigator.share({title:"AHAVA · ט״ו באב",text:txt,url}).catch(()=>{}); }
+  else { window.open("https://wa.me/?text="+encodeURIComponent(txt+" "+url),"_blank"); }
+}
 
 /* tally votes; on a tie, the user's earliest-voted persona wins (stable) */
 function scoreMatch(){
