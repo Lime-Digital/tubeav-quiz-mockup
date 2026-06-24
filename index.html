@@ -151,7 +151,8 @@
   .result-band{background:var(--sand);text-align:center;padding:6px 24px 26px;border-bottom:1px solid var(--line)}
   .love-style{font-size:11px;letter-spacing:.2em;color:var(--ink);font-weight:800;margin:0 0 6px}
   .result-intro{font-size:13px;color:var(--ink2);margin:0 0 4px;font-weight:600}
-  .result-name{font-size:29px;line-height:1.14;margin:2px 0 12px}
+  .result-name{font-size:29px;line-height:1.14;margin:2px 0 4px}
+  .result-persona{font-size:18px;font-weight:700;color:var(--ink2);margin:0 0 8px}
   .result-tag{color:var(--ink2);font-size:15px;line-height:1.6;margin:0 auto;max-width:400px;font-weight:400;font-family:"Assistant",sans-serif}
 
   /* prominent coupon box — brief: "אזור הקופון בתיבה מעוצבת ובולטת" */
@@ -298,7 +299,7 @@ const MATCHES = {
 const QUESTIONS = [
   { title:"איך היית רוצה שהערב שלך ירגיש?",
     options:[
-      {key:"calm",      title:"שלווה שקטה",   desc:"זמן איכות עם עצמי, ריחות מרגיעים ורגע של ניתוק."},
+      {key:"calm",      title:"רגוע ושליו",   desc:"זמן איכות עם עצמי, ריחות מרגיעים ורגע של ניתוק."},
       {key:"radiant",   title:"אנרגיה זוהרת", desc:"תחושה של חיוניות, רעננות וביטחון עצמי שמוקרן החוצה."},
       {key:"pampering", title:"חיבוק מפנק",   desc:"רגע אינטימי ועוטף, שמוקדש כולו להזנה עמוקה של הגוף."},
       {key:"radiant",   title:"טבע טהור",     desc:"חיבור מקרקע לשורשים, נשימה עמוקה של מינרלים ותחושה נקייה."} ]},
@@ -353,7 +354,7 @@ function renderLanding(){
         <span>פחות מדקה</span><span class="dot"></span>
         <span>ובסוף מחכה לך מתנה של <b>30% הנחה</b></span>
       </div>
-      <button class="btn" style="margin-top:18px" onclick="startQuiz()">גלי מי נועד עבורך <span class="chev">‹‹</span></button>
+      <button class="btn" style="margin-top:18px" onclick="startQuiz()">גלי מי נועד עבורך <span class="chev">››</span></button>
       <p class="footstrip">לרגל ט״ו באב · קוד הנחה <b>${COUPON}</b> · בתוקף לזמן מוגבל</p>
     </div>`;
 }
@@ -410,8 +411,8 @@ function renderResult(){
     <div class="result-photo" style="background-image:url('img/result-${key}.jpg')">
       <div class="rp-scrim">
         <p class="love-style">✦ &nbsp;${m.style}</p>
-        <p class="result-intro">הכירי את הזיווג המדויק שלך</p>
-        <h2 class="result-name">${m.name}</h2>
+        <h2 class="result-name">הכירי את הזיווג המדויק שלך</h2>
+        <p class="result-persona">${m.name}</p>
       </div>
     </div>
     <div class="result-band">
