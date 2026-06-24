@@ -3,37 +3,39 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AHAVA · מצאי את הזיווג המושלם שלך · טו באב</title>
+<title>AHAVA · השידוך המושלם לעור שלך · ט״ו באב</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    /* AHAVA mineral-luxe palette (from production quiz code) */
-    --cream:#FAF7F2;
-    --salt:#F5F0E8;
-    --inset:#FAF6EE;
+    /* AHAVA Tu B'Av — warm editorial palette (from the creative examples) */
+    --cream:#FAF6EF;
+    --sand:#EFE7D9;       /* warm beige band */
+    --taupe:#E3D6C3;      /* deeper warm taupe (MEDIA 30% bg) */
+    --inset:#F6F0E6;
     --card:#FFFFFF;
-    --ink:#1F1D1A;
-    --ink2:#3A3733;
-    --muted:#7A746A;
-    --faint:#A89F92;
-    --line:#E5E0D6;
+    --ink:#2B2118;        /* espresso-brown ink (warm, not black) */
+    --ink2:#4A3D30;
+    --muted:#857A6C;
+    --faint:#AEA493;
+    --line:#E5DDCE;
     --gold:#C4A265;
     --gold-soft:#E7CF9B;
     --gold-line:rgba(196,162,101,.4);
-    --shadow:0 16px 40px rgba(31,26,20,.10);
+    --rose:#CC9A82;       /* soft Tu B'Av warmth */
+    --shadow:0 16px 40px rgba(43,33,24,.12);
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
   body{
     background:var(--cream);
     color:var(--ink);
-    font-family:"Heebo",sans-serif;
+    font-family:"Assistant",sans-serif;
     -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;
   }
-  h1,h2,h3,.serif{font-family:"Frank Ruhl Libre",serif;font-weight:700;letter-spacing:-.01em}
+  h1,h2,h3{font-family:"Assistant",sans-serif;font-weight:800;letter-spacing:-.02em}
   .wrap{width:100%;max-width:540px;margin:0 auto}
   .stage{
     background:var(--card);border:1px solid var(--line);border-radius:18px;
@@ -46,42 +48,58 @@
   }
 
   /* logo + ornament */
-  .logo{font-family:"Heebo";font-weight:600;letter-spacing:.45em;font-size:17px;
+  .logo{font-family:"Assistant";font-weight:600;letter-spacing:.45em;font-size:17px;
     color:var(--ink);margin:0;padding-right:.45em;text-align:center}
   .logo small{display:block;font-weight:400;letter-spacing:.3em;font-size:8.5px;
     color:var(--faint);margin-top:7px;padding-right:.3em}
-  .orn{display:flex;align-items:center;justify-content:center;gap:13px;margin:20px 0}
+  .orn{display:flex;align-items:center;justify-content:center;gap:13px;margin:18px 0}
   .orn .rule{height:1px;width:54px;background:var(--gold-line)}
   .orn .star{color:var(--gold);font-size:14px}
   .kicker{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);
     font-weight:600;margin:0;text-align:center}
   .kicker.he{letter-spacing:.12em}
 
-  /* ---------- LANDING ---------- */
-  .hero-band{background:var(--salt);padding:34px 26px 30px;text-align:center;border-bottom:1px solid var(--line)}
-  h1{font-size:32px;line-height:1.14;margin:6px 0 14px}
+  /* ---------- LANDING : photo-led hero (warm editorial, like the creatives) ---------- */
+  .hero-photo{
+    position:relative;height:clamp(280px,44vh,380px);width:100%;
+    background-image:url("img/hero-landing.jpg");
+    background-size:contain;background-repeat:no-repeat;background-position:center;
+    background-color:var(--sand);
+  }
+  .hero-photo .hp-logo{position:absolute;top:16px;left:0;right:0;text-align:center;
+    font-weight:600;letter-spacing:.5em;font-size:14px;color:var(--ink);padding-right:.5em;opacity:.85}
+  .hp-kicker{font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:700;margin:0 0 6px;text-align:center}
+  .hero-h1{font-size:29px;font-weight:800;line-height:1.16;letter-spacing:-.02em;color:var(--ink);margin:0 0 4px;text-align:center}
+  .hero-h1 .accent{color:var(--gold)}
+
+  h1{font-size:31px;line-height:1.16;margin:14px 0 12px}
   h1 .accent{color:var(--gold)}
-  .lead{color:var(--muted);font-size:15.5px;line-height:1.65;margin:0 auto;max-width:410px;font-weight:300}
-  .icons-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 4px}
-  .icon-card{background:var(--inset);border:1px solid var(--line);border-radius:12px;padding:15px 6px 12px;text-align:center}
-  .icon-emoji{font-size:22px;display:block;margin-bottom:8px}
-  .icon-name{font-family:"Frank Ruhl Libre",serif;font-size:13px;font-weight:700;line-height:1.2}
-  .icon-sub{font-size:10.5px;color:var(--muted);margin-top:4px}
+  .lead{color:var(--muted);font-size:14.5px;line-height:1.7;margin:0 auto;max-width:430px;font-weight:400}
+  .promise{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;
+    font-size:12.5px;color:var(--ink2);margin:18px 0 2px;font-weight:400}
+  .promise b{color:var(--gold);font-weight:600}
+  .promise .dot{width:3px;height:3px;border-radius:50%;background:var(--faint)}
 
   /* buttons — AHAVA style */
   .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;border:none;cursor:pointer;
-    background:var(--ink);color:#fff;font-family:"Heebo";font-weight:500;font-size:14px;
-    letter-spacing:.12em;padding:16px 22px;border-radius:999px;
-    transition:background .25s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;border:none;cursor:pointer;
+    background:var(--ink);color:#fff;font-family:"Assistant";font-weight:500;font-size:14px;
+    letter-spacing:.1em;padding:16px 22px;border-radius:999px;
+    transition:background .25s ease,transform .15s ease;
   }
   .btn:hover{background:var(--gold)}
+  .btn:active{transform:scale(.99)}
+  .btn .chev{font-size:16px;opacity:.8}
   .btn.gold{background:var(--gold);color:var(--ink);font-weight:600}
   .btn.gold:hover{background:var(--ink);color:#fff}
   .btn.ghost{background:transparent;color:var(--muted);font-weight:400;letter-spacing:.04em;font-size:13.5px}
   .btn.ghost:hover{background:transparent;color:var(--ink)}
+  .btn.outline{background:transparent;color:var(--ink);border:1px solid var(--line);font-weight:500}
+  .btn.outline:hover{border-color:var(--gold);background:var(--inset);color:var(--ink)}
   .fineprint{font-size:12px;color:var(--muted);text-align:center;margin:14px 0 0;line-height:1.55;font-weight:300}
   .fineprint b{font-weight:600;color:var(--ink2)}
+  .footstrip{text-align:center;font-size:11.5px;color:var(--faint);margin:16px 0 0;letter-spacing:.02em}
+  .footstrip b{color:var(--gold);font-weight:600;letter-spacing:.08em}
 
   /* ---------- PROGRESS ---------- */
   .topbar{display:flex;align-items:center;gap:14px;padding:18px 22px 0}
@@ -94,68 +112,83 @@
 
   /* ---------- QUESTION ---------- */
   .q-head{text-align:center;padding:10px 6px 4px}
-  .q-title{font-size:25px;line-height:1.22;margin:12px 0 4px}
+  .q-title{font-size:24px;line-height:1.26;margin:12px 0 4px}
   .q-sub{color:var(--muted);font-size:14px;margin:10px 0 0;font-weight:300}
   .options{display:grid;gap:10px;margin-top:22px}
   .opt{display:flex;align-items:center;gap:14px;text-align:right;background:var(--card);
     border:1px solid var(--line);border-radius:14px;padding:14px 15px;cursor:pointer;width:100%;
-    font-family:"Heebo";transition:border-color .18s,background .18s}
+    font-family:"Assistant";transition:border-color .18s,background .18s}
   .opt:hover{border-color:var(--gold);background:var(--inset)}
-  .opt .o-emoji{width:44px;height:44px;flex:0 0 44px;border-radius:10px;display:flex;align-items:center;
-    justify-content:center;font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:21px;
-    color:var(--gold);background:var(--inset);border:1px solid var(--line)}
-  .opt:hover .o-emoji{background:#fff}
-  .opt .o-text{flex:1}
-  .opt .o-title{font-weight:500;font-size:16px;line-height:1.25}
-  .opt .o-desc{font-size:12.5px;color:var(--muted);margin-top:2px;font-weight:300}
+  .opt .o-thumb{width:50px;height:50px;flex:0 0 50px;border-radius:10px;object-fit:cover;
+    border:1px solid var(--line);background:var(--inset)}
+  .opt .o-text{flex:1;min-width:0}
+  .opt .o-title{display:block;font-weight:700;font-size:15.5px;line-height:1.3}
+  .opt .o-desc{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.45;font-weight:400}
   .opt .o-arrow{color:var(--gold);font-size:18px;opacity:0;transition:opacity .18s}
   .opt:hover .o-arrow{opacity:1}
 
-  /* ---------- EMAIL ---------- */
+  /* ---------- LEAD CAPTURE ---------- */
   .center{text-align:center}
   .field{width:100%;border:1px solid var(--line);border-radius:12px;padding:14px 16px;
-    font-family:"Heebo";font-size:16px;margin-top:11px;text-align:right;background:var(--card);color:var(--ink)}
+    font-family:"Assistant";font-size:16px;margin-top:11px;text-align:right;background:var(--card);color:var(--ink)}
   .field:focus{outline:none;border-color:var(--gold)}
+  .lead-badge{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;
+    border-radius:50%;background:var(--inset);border:1.5px solid var(--gold);color:var(--gold);
+    font-size:26px;margin:0 auto 6px}
 
-  /* ---------- RESULT ---------- */
-  .result-band{background:var(--salt);text-align:center;padding:34px 24px 26px;border-bottom:1px solid var(--line)}
-  .match-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
-    width:112px;height:112px;border-radius:50%;background:var(--card);border:1.5px solid var(--gold);margin:0 auto 16px}
-  .match-pct{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:33px;color:var(--ink);line-height:1}
-  .match-lbl{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:4px}
-  .love-style{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 6px}
-  .result-name{font-size:28px;line-height:1.14;margin:2px 0 10px}
-  .result-tag{color:var(--muted);font-size:15px;line-height:1.6;margin:0 auto;max-width:390px;font-weight:300;font-style:italic;font-family:"Frank Ruhl Libre",serif}
-  .reading{background:var(--inset);border:1px solid var(--line);border-radius:14px;padding:18px 18px;
-    font-size:14.5px;line-height:1.75;color:var(--ink2);margin:24px 0 4px;font-weight:300}
-  .ritual-h{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:19px;margin:26px 0 4px;text-align:center}
+  /* ---------- RESULT (photo-led) ---------- */
+  .result-photo{position:relative;height:clamp(170px,26vh,220px);width:100%;overflow:hidden;
+    background-size:cover;background-position:center;background-color:var(--sand)}
+  .result-photo .rp-scrim{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:22px 24px 18px;text-align:center;
+    background:linear-gradient(to top, var(--sand) 3%, rgba(239,231,217,.85) 26%, transparent 62%)}
+  .result-band{background:var(--sand);text-align:center;padding:6px 24px 26px;border-bottom:1px solid var(--line)}
+  .love-style{font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:700;margin:0 0 6px}
+  .result-intro{font-size:13px;color:var(--muted);margin:0 0 4px;font-weight:400}
+  .result-name{font-size:29px;line-height:1.14;margin:2px 0 12px}
+  .result-tag{color:var(--ink2);font-size:15px;line-height:1.6;margin:0 auto;max-width:400px;font-weight:400;font-family:"Assistant",sans-serif}
+
+  /* prominent coupon box — brief: "אזור הקופון בתיבה מעוצבת ובולטת" */
+  .coupon{margin:24px 0 6px;border-radius:18px;background:var(--ink);color:#fff;padding:24px 18px 22px;text-align:center;position:relative;overflow:hidden}
+  .coupon::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0%,rgba(196,162,101,.22),transparent 70%);pointer-events:none}
+  .coupon .c-gift{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);position:relative}
+  .coupon .c-head{font-family:"Assistant",sans-serif;font-weight:700;font-size:21px;line-height:1.3;margin:8px 0 14px;color:#fff;position:relative}
+  .coupon .c-pill{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;
+    border:1.5px dashed var(--gold-soft);border-radius:999px;padding:12px 18px;max-width:300px;margin:0 auto;cursor:pointer;
+    transition:background .2s}
+  .coupon .c-pill:hover{background:rgba(255,255,255,.05)}
+  .coupon .c-lbl{font-size:12px;color:#cfc7ba;font-weight:300}
+  .coupon .c-code{font-family:"Assistant",sans-serif;font-weight:900;font-size:24px;letter-spacing:.14em;color:#fff;padding-right:.14em}
+  .coupon .c-copy{font-size:11px;color:var(--gold-soft);font-weight:600}
+  .coupon .c-note{font-size:11.5px;color:#cfc7ba;margin-top:12px;font-weight:300;position:relative}
+
+  .reading{background:var(--inset);border:1px solid var(--line);border-radius:14px;padding:18px;
+    font-size:14.5px;line-height:1.8;color:var(--ink2);margin:6px 0 4px;font-weight:300}
+  .ritual-h{font-family:"Assistant",sans-serif;font-weight:700;font-size:19px;margin:26px 0 4px;text-align:center}
   .ritual-sub{text-align:center;color:var(--muted);font-size:12.5px;margin:0 0 16px;font-weight:300;letter-spacing:.02em}
-  .product{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);
-    border-radius:16px;padding:14px;margin-bottom:10px}
-  .product .pimg{width:64px;height:76px;flex:0 0 64px;border-radius:10px;background:var(--inset);
+  .product{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px;position:relative}
+  .product.hero-product{border:1.5px solid var(--gold);background:var(--inset)}
+  .soul-tag{position:absolute;top:-10px;right:16px;background:var(--gold);color:#fff;font-size:9.5px;
+    font-weight:600;letter-spacing:.1em;padding:3px 11px;border-radius:999px}
+  .product .prow{display:flex;gap:14px;align-items:center}
+  .product .pimg{width:64px;height:78px;flex:0 0 64px;border-radius:10px;background:var(--inset);
     display:flex;align-items:center;justify-content:center;font-size:10.5px;color:var(--faint);
     text-align:center;line-height:1.3;padding:6px;border:1px solid var(--line);white-space:pre-line}
   .product .pinfo{flex:1;min-width:0}
   .product .pline{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:2px}
-  .product .pname{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:16px;line-height:1.2}
+  .product .pname{font-family:"Assistant",sans-serif;font-weight:700;font-size:16px;line-height:1.2}
   .product .pwhy{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45;font-weight:300}
   .product .pprice{margin-top:8px;display:flex;align-items:baseline;gap:8px}
   .pprice .now{font-weight:600;font-size:16px;color:var(--ink)}
   .pprice .was{font-size:12.5px;color:var(--faint);text-decoration:line-through}
   .pprice .save{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
-  .hero-product{border:1.5px solid var(--gold);background:var(--inset);position:relative}
-  .soul-tag{position:absolute;top:-10px;right:16px;background:var(--gold);color:#fff;font-size:9.5px;
-    font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 11px;border-radius:999px}
+  .product .padd{margin-top:12px}
+  .btn.add{padding:11px 18px;font-size:13px;background:var(--card);color:var(--ink);border:1px solid var(--line);font-weight:500;letter-spacing:.02em}
+  .btn.add:hover{border-color:var(--gold);background:var(--inset)}
 
-  .coupon{margin:24px 0 4px;border-radius:16px;background:var(--ink);color:#fff;padding:22px 18px;text-align:center}
-  .coupon .c-top{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
-  .coupon .c-code{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:32px;letter-spacing:.16em;
-    color:#fff;margin:8px 0 3px;padding-right:.16em}
-  .coupon .c-sub{font-size:12px;color:#cfc7ba;margin-bottom:16px;font-weight:300}
-  .coupon .btn.gold{max-width:240px;margin:0 auto}
   .total{display:flex;justify-content:space-between;align-items:center;padding:16px 4px 2px;font-size:14px;color:var(--ink2)}
-  .total .was{font-size:13px}
-  .total .t-now{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:22px;color:var(--ink)}
+  .total .was{font-size:13px;color:var(--faint);text-decoration:line-through}
+  .total .t-now{font-family:"Assistant",sans-serif;font-weight:900;font-size:22px;color:var(--ink)}
   .share{margin-top:18px;text-align:center;font-size:13px;color:var(--muted);font-weight:300}
   .share a{color:var(--gold);text-decoration:none;font-weight:500}
   .share a:hover{color:var(--ink)}
@@ -166,95 +199,115 @@
 
   @media (max-width:430px){
     .pad{padding:24px 18px 28px}
-    h1{font-size:28px}
-    .result-name{font-size:24px}
-    .q-title{font-size:22px}
-    .icons-row{gap:7px}
-    .icon-name{font-size:12px}
-    .icon-sub{display:none}
+    h1{font-size:27px}
+    .hero-h1{font-size:26px}
+    .result-name{font-size:25px}
+    .q-title{font-size:21px}
     .opt{padding:13px;gap:11px}
-    .opt .o-emoji{width:40px;height:40px;flex-basis:40px;font-size:18px}
+    .opt .o-emoji{width:38px;height:38px;flex-basis:38px;font-size:17px}
   }
 </style>
 </head>
 <body>
-<div class="mockup-flag">מוקאפ · מוצרים ומחירים לדוגמה</div>
+<div class="mockup-flag">מוקאפ · עיצוב פתיח ומוצרים לדוגמה</div>
 <div class="wrap"><div class="stage" id="stage"></div></div>
 
 <script>
 /* =====================================================================
-   AHAVA · "מצאי את הזיווג המושלם שלך" — Tu B'Av matchmaking quiz
-   MOCKUP. AHAVA mineral-luxe brand palette + Frank Ruhl Libre / Heebo.
-   Products / prices / images are placeholders. Coupon: TUBEAV (30% off).
+   AHAVA · "מצאי את השידוך המושלם לעור שלך" — ט״ו באב 2026
+   MOCKUP. Mineral-luxe brand system + soft Tu B'Av warm-romance accents.
+   Copy from Iris's brief. Products/prices/handles are placeholders.
+   Coupon: AHAVA (30% off). Promo window 21.07.2026–29.07.2026.
+   Add-to-cart = REAL ahava.co.il cart permalink; products/variantIds verified in stock.
    ===================================================================== */
-const COUPON = "TUBEAV";
+const COUPON   = "AHAVA";
 const DISCOUNT = 0.30;
+const STORE    = "https://www.ahava.co.il";
+const QUIZ_ID  = "tubeav-il", QUIZ_VER = "v1";
+const FINEPRINT = `המבצע בתוקף בין התאריכים 21.07.2026 ועד 29.07.2026 או עד גמר המלאי (המוקדם מביניהם) · ללא כפל מבצעים והנחות · בכפוף לתקנון · ט.ל.ח`;
 
+/* ---------- tracking (mirrors ahava-quiz-il/embed.js — matches Tzvi's GTM CE triggers) ---------- */
+const GA4_ID = "G-FM811E6S87", FB_PIXEL = "1247741762404202";
+function dl(event,p){
+  window.dataLayer = window.dataLayer || [];
+  var o = { event:event, quiz_id:QUIZ_ID, quiz_version:QUIZ_VER };
+  if(p) for(var k in p) if(p[k]!==undefined) o[k]=p[k];
+  window.dataLayer.push(o);
+  try{ if(window.gtag){ var g={quiz_id:QUIZ_ID,quiz_version:QUIZ_VER}; if(p) for(var k2 in p) g[k2]=p[k2]; window.gtag("event",event,g); } }catch(e){}
+}
+function fbqTrack(name,params){ try{ if(window.fbq) window.fbq("track",name,params||{}); }catch(e){} }
+function loadAnalytics(){
+  if(window.__atqAnalytics) return; window.__atqAnalytics=true;
+  try{ var g=document.createElement("script"); g.async=true; g.src="https://www.googletagmanager.com/gtag/js?id="+GA4_ID;
+    document.head.appendChild(g); window.dataLayer=window.dataLayer||[]; window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
+    window.gtag("js",new Date()); window.gtag("config",GA4_ID,{send_page_view:false}); }catch(e){}
+  try{ !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    window.fbq("init",FB_PIXEL); }catch(e){}
+}
+/* real cart permalink on ahava.co.il, AHAVA discount auto-applied + quiz UTMs */
+function cartUrl(vids){
+  var items = vids.filter(Boolean).map(function(v){return v+":1";}).join(",");
+  return STORE+"/cart/"+items+"?discount="+COUPON+"&utm_source=quiz&utm_medium=referral&utm_campaign="+QUIZ_ID;
+}
+
+/* ---- 3 personas (results). Each = a PAIR: hero + cheaper complement.
+   variantId + price are REAL & IN-STOCK on ahava.co.il (fetched 2026-06-24). ---- */
 const MATCHES = {
-  glow: {
-    emoji:"✶", pct:96, loveStyle:"הקורנת · אהבה שמדליקה אור",
-    name:"סרום הקריסטל Osmoter X6", line:"Crystal",
-    tagline:"זוהר מיידי, ניצוץ שלא מפסיק לקרון — בדיוק כמו פרפרים בבטן.",
-    reading:"את שייכת לאהבה שמאירה כל חדר. את אוהבת את הרגע שבו הפנים קורנות, האנרגיה גבוהה והביטחון העצמי בשיא. הזיווג המושלם שלך הוא תמצית המינרלים המרוכזת של ים המלח, שמדליקה את הזוהר הטבעי של העור, מאחדת את גוון העור ומשאירה אותו נקי וקורן. אור מבפנים, שמתחדש בכל בוקר.",
-    bottle:"סרום\nקריסטל", price:329, why:"מאיר, מאחד את גוון העור ומחזיר זוהר תוך רגעים.",
-    support:[
-      {bottle:"ג'ל\nניקוי", line:"Cleanse", name:"ג'ל ניקוי מינרלי", price:99, why:"מנקה בעדינות ומכין את הבמה לזוהר."},
-      {bottle:"סרום\nזוהר", line:"Radiance", name:"סרום זוהר מינרלי", price:229, why:"נועל את האפקט הקורן לכל היום."}
-    ]
+  calm: {  /* Pair 1 — "Quiet Calm" (track א') */
+    style:"הרכה", name:"שלווה ושקט",
+    tagline:"שלווה, רכות וביטחון — האהבה שעוטפת אותך בלי כובד.",
+    reading:"לפי התשובות שלך, את מחפשת רוגע ורכות — רגע שקט שמרגיש כמו בית. בחרנו עבורך זוג קליל ומרגיע: לחות מינרלית שמעניקה נוחות לאורך כל היום, ולצידה תחליב גוף עדין עם ניחוח ים שליו. הכול בלי כובד — בדיוק כמו שאת אוהבת.",
+    hero:{vid:"40575795527866", bottle:"Osmoter\nקרם", line:"Osmoter Concentrate", name:"קרם לחות Osmoter™ מרוכז", why:"לחות מינרלית קלילה והגנה מאור כחול — נוחות לאורך כל היום.", price:264},
+    mate:{vid:"40575802638522", bottle:"תחליב\nגוף", line:"Mineral Body", name:"תחליב גוף מינרלי Sea-Kissed", why:"נספג מהר, ניחוח ים שליו — רכות בלי כובד.", price:149}
   },
-  calm: {
-    emoji:"✦", pct:95, loveStyle:"הרכה · אהבה רגועה ועוטפת",
-    name:"סרום חומצה היאלורונית", line:"Hyaluronic",
-    tagline:"שלווה, רכות וביטחון — האהבה שעוטפת אותך ונותנת לך לנשום.",
-    reading:"את מחפשת רוגע, רכות ומגע משי שתמיד שם. אהבה שקטה ועמוקה, שמרגישה כמו בית. הזיווג שלך הוא חומצה היאלורונית שממלאת את העור בלחות אינסופית, מרגיעה ומשאירה אותו גמיש, רווי ונינוח. ריטואל עדין ועוטף, מהמגע הראשון ועד הלילה.",
-    bottle:"היאלורון\nסרום", price:259, why:"מציף את העור בלחות עמוקה ומרגיע — החיבוק הבטוח.",
-    support:[
-      {bottle:"קרם\nלחות", line:"Hydrate", name:"קרם לחות עשיר", price:189, why:"שכבת לחות משיית שעוטפת לאורך היום."},
-      {bottle:"מי\nפנים", line:"Tonic", name:"מי פנים מינרליים", price:119, why:"מרעננים ומאזנים בין השלבים."}
-    ]
+  radiant: {  /* Pair 2 — "Radiant Energy" (track ב' / ד'-רענן) */
+    style:"הקורנת", name:"זוהר ואנרגיה",
+    tagline:"זוהר, אנרגיה וחיוניות — האור שמוקרן ממך החוצה.",
+    reading:"לפי התשובות שלך, העור שלך משתוקק לאור. בחרנו עבורך זוג שמדליק את הזוהר הטבעי: סרום הקריסטל למראה 'עור זכוכית' קורן, ולצידו סרום עיניים שמפחית נפיחות ומאיר את המבט. בוקר ער, רענן ומלא חיים.",
+    hero:{vid:"40565506113722", bottle:"סרום\nקריסטל", line:"Crystal Osmoter X6", name:"סרום קריסטל Osmoter™ X6", why:"הירו של הזוהר — מראה 'עור זכוכית', ברק טבעי וחיוניות.", price:314},
+    mate:{vid:"45358634827962", bottle:"סרום\nעיניים", line:"Osmoter Eye", name:"סרום עיניים Osmoter™ מרוכז", why:"מפחית נפיחות וכהויות ומאיר — מבט ער ורענן.", price:229}
   },
-  nourish: {
-    emoji:"❖", pct:94, loveStyle:"המחודשת · אהבה עמוקה ומחדשת",
-    name:"סרום pRetinol™ לחידוש", line:"pRetinol",
-    tagline:"פינוק עשיר ועוצמתי — אהבה שמשילה עייפות ומחדשת מהיסוד.",
-    reading:"את אוהבת את הפינוק האינטנסיבי, את המרקם החמאתי והעשיר, ואת תחושת ה'לידה מחדש' של העור. הזיווג שלך הוא הרטינול העדין שמשיל עייפות, מחליק קווים דקים ומחזיר מוצקות וחיוניות — מראה מורם, רענן וצעיר. אהבה עמוקה שמתעצמת ככל שמתמידים בה.",
-    bottle:"pRetinol\nסרום", price:349, why:"מחדש, מחליק קווים דקים ומחזיר מוצקות וחיוניות.",
-    support:[
-      {bottle:"קרם\nלילה", line:"Night", name:"קרם לילה מזין ומתקן", price:219, why:"מרקם עשיר שעובד בזמן השינה ומעמיק את החידוש."},
-      {bottle:"מסכת\nבוץ", line:"Mineral Mud", name:"מסכת בוץ מינרלי", price:159, why:"מנקה לעומק ומעניק לעור לידה מחדש."}
-    ]
+  pampering: {  /* Pair 3 — "Wrapped Pampering" (track ג' / ד'-גוף) */
+    style:"המפנקת", name:"פינוק עוטף",
+    tagline:"פינוק עשיר ועוטף — אהבה עמוקה מהמקלחת ועד הלילה.",
+    reading:"לפי התשובות שלך, העור שלך מחפש את התחושה העוטפת והמפנקת ביותר. בחרנו עבורך זוג עשיר: קרם הקריסטל העשיר ללחות אינטנסיבית וזוהר מיידי, ולצידו פילינג חמאת מלח שנמס ללושן — טקס שלם שמרגיע גוף ונפש.",
+    hero:{vid:"40737881915578", bottle:"קרם\nקריסטל", line:"Crystal Osmoter X6", name:"קרם פנים קריסטל Osmoter™ X6", why:"קרם פנים עשיר ועוטף — לחות אינטנסיבית וזוהר מיידי.", price:307},
+    mate:{vid:"40565514600634", bottle:"פילינג\nחמאתי", line:"Dead Sea Scrub", name:"פילינג חמאת מלח", why:"פילינג חמאתי שנמס ללושן — טקס מהמקלחת ועד הלילה.", price:124}
   }
 };
 
-const INTRO_ICONS = [
-  {emoji:"✶", name:"הקורנת", sub:"זוהר"},
-  {emoji:"✦", name:"הרכה", sub:"לחות"},
-  {emoji:"❖", name:"המחודשת", sub:"חידוש"}
-];
-
+/* Brief order of options per question is א/ב/ג/ד.
+   4 answer-options collapse into the 3 result tracks above. */
 const QUESTIONS = [
-  { title:"מהי האווירה שתעטפי בה את הערב הקרוב שלך?", sub:"",
+  { title:"איך היית רוצה שהערב שלך ירגיש?",
     options:[
-      {key:"calm",   title:"שלווה והתחדשות", desc:"ערב שקט ואינטימי בבית, עם נרות וריחות מרגיעים."},
-      {key:"glow",   title:"זוהר ואנרגיה",   desc:"אירוע חברתי מרגש, תחושה של התחדשות וביטחון עצמי."},
-      {key:"nourish",title:"פינוק אינטנסיבי",desc:"רגע של חסד, ניתוק מהעולם וטיפוח עמוק של הגוף."} ]},
-  { title:"כשמדברים על אהבה — אילו מרקמים גורמים לך להרגיש הכי בנוח עם עצמך?", sub:"",
+      {key:"calm",      title:"שלווה שקטה",   desc:"זמן איכות עם עצמי, ריחות מרגיעים ורגע של ניתוק."},
+      {key:"radiant",   title:"אנרגיה זוהרת", desc:"תחושה של חיוניות, רעננות וביטחון עצמי שמוקרן החוצה."},
+      {key:"pampering", title:"חיבוק מפנק",   desc:"רגע אינטימי ועוטף, שמוקדש כולו להזנה עמוקה של הגוף."},
+      {key:"radiant",   title:"טבע טהור",     desc:"חיבור מקרקע לשורשים, נשימה עמוקה של מינרלים ותחושה נקייה."} ]},
+  { title:"אילו מרקמים גורמים לעור שלך להרגיש הכי בנוח?",
     options:[
-      {key:"calm",   title:"משי וקלילות",   desc:"מגע עדין, נספג מהר, משאיר ניחוח רענן ומעודן."},
-      {key:"nourish",title:"עושר ופינוק",   desc:"מרקם חמאתי ועמוק שמלטף את העור ומעניק הזנה אינטנסיבית."},
-      {key:"glow",   title:"מינרליות חיה",  desc:"תחושה מקרקעת, נקייה ועוצמתית — כמו חיבור ישיר לטבע."} ]},
-  { title:"איזה ריטואל היית רוצה להעניק לאהובך (או לעצמך) לכבוד החג?", sub:"",
+      {key:"calm",      title:"משי וקלילות",    desc:"מגע עדין שנספג בשניות, ומשאיר אותך רעננה וחופשיה."},
+      {key:"pampering", title:"עטיפה חמאתית",   desc:"מרקם עשיר, עמוק ומלטף שמעניק תחושת הזנה אינטנסיבית."},
+      {key:"radiant",   title:"רעננות מינרלית", desc:"תחושה חיה, טהורה ועוצמתית, כמו חיבור ישיר לטבע."},
+      {key:"pampering", title:"קטיפה חלקה",     desc:"מגע רך ומפנק שמותיר את העור בניחוח עדין לאורך שעות."} ]},
+  { title:"איזו מתנה היית רוצה להעניק לעצמך ולעור שלך לכבוד החג?",
     options:[
-      {key:"glow",   title:"הארה",          desc:"להעניק רגע של זוהר, חיוניות ופנים קורנות."},
-      {key:"nourish",title:"התחדשות",       desc:"להשיל את העייפות ולהעניק לעור 'לידה מחדש' של לחות."},
-      {key:"calm",   title:"עטיפה של אהבה", desc:"רוגע מוחלט — טקס טיפוח מלא, מהמקלחת ועד הלילה."} ]},
-  { title:"מהו הדבר שהכי מעצים את היופי הטבעי שלך ביום-יום?", sub:"",
+      {key:"radiant",   title:"רגע של הארה",     desc:"להדגיש את הזוהר הטבעי שלך ולהרגיש חיונית."},
+      {key:"calm",      title:"התחדשות מרגיעה",  desc:"להשיל את העייפות ולהעניק לעור תחושת נינוחות עמוקה."},
+      {key:"pampering", title:"עטיפה של אהבה",   desc:"טקס טיפוח מלא ומרגיע, מהמקלחת ועד הלילה."},
+      {key:"calm",      title:"שקט פנימי",       desc:"רגע קצר ומינימליסטי של טיפוח שנותן לי בדיוק את מה שאני צריכה."} ]},
+  { title:"מה גורם לך להרגיש הכי נהדרת ביום-יום?",
     options:[
-      {key:"calm",   title:"תחושת לחות אינסופית", desc:"עור גמיש, מלא ורווי לאורך כל היום."},
-      {key:"nourish",title:"חיוניות ומיצוק",      desc:"מראה מורם, רענן, נינוח וצעיר."},
-      {key:"glow",   title:"אחידות וזוהר",        desc:"גוון עור בהיר, נקי וקורן."} ]}
+      {key:"pampering", title:"תחושת רוויה",   desc:"כשהעור שלי מרגיש גמיש, עשיר בלחות ונינוח לאורך כל היום."},
+      {key:"radiant",   title:"חיוניות זורחת", desc:"כשאני קמה בבוקר ורואה מראה רענן ומלא חיים."},
+      {key:"calm",      title:"איזון ושקט",    desc:"כשהעור מקרין אחידות, רוגע וניקיון טבעי."},
+      {key:"pampering", title:"רכות מלטפת",    desc:"כשהמגע של העור פשוט מזמין, רך ומפנק."} ]}
 ];
 
+const LETTERS = ["א","ב","ג","ד"];
 let state = { step:"landing", qIndex:0, votes:[] };
 const stage = document.getElementById("stage");
 const money = n => "₪" + n.toLocaleString("he-IL");
@@ -262,28 +315,32 @@ const ORN = `<div class="orn"><span class="rule"></span><span class="star">✦</
 
 function render(){
   stage.classList.remove("fade"); void stage.offsetWidth; stage.classList.add("fade");
-  if(state.step==="landing") return renderLanding();
+  if(state.step==="landing")  return renderLanding();
   if(state.step==="question") return renderQuestion();
-  if(state.step==="email")    return renderEmail();
   if(state.step==="result")   return renderResult();
 }
 
+/* ---------- SCREEN 1 : Landing (photo-led) ---------- */
 function renderLanding(){
   stage.innerHTML = `
-    <div class="hero-band">
-      <p class="logo">AHAVA<small>DEAD SEA LABORATORIES</small></p>
-      ${ORN}
-      <p class="kicker he">לכבוד טו באב · חג האהבה</p>
-      <h1 style="margin-top:14px">מצאי את <span class="accent">הזיווג המושלם</span> שלך</h1>
-      <p class="lead">כל סיפור אהבה מתחיל בהתאמה נכונה. ענִי על 4 שאלות קטנות, ונשדך אותך למוצר ה‑AHAVA שנברא בשבילך — עם כרטיס התאמה אישי.</p>
+    <div class="hero-photo">
+      <div class="hp-logo">AHAVA</div>
     </div>
-    <div class="pad">
-      <p class="fineprint" style="margin:4px 0 16px">4 שאלות · פחות מדקה · ובסוף מחכה לך <b>30% הנחה</b></p>
-      <button class="btn" onclick="startQuiz()">בואו נמצא התאמה</button>
-      <p class="fineprint">לרגל טו באב · קוד הנחה <b>${COUPON}</b> · בתוקף לזמן מוגבל</p>
+    <div class="pad" style="padding-top:22px">
+      <p class="hp-kicker">לכבוד ט״ו באב · חג האהבה</p>
+      <h1 class="hero-h1">מצאי את <span class="accent">השידוך המושלם</span> לעור שלך</h1>
+      <p class="lead" style="margin-top:12px">אנחנו מאמינים שאהבה אמיתית מתחילה כשאת מרגישה הכי בנוח עם עצמך. עני על 4 שאלות קצרות, ונשדך לך את שגרת הטיפוח שתרגיש לך הכי טבעית, נעימה ומדויקת — כזו שנועדה לחגוג את האישה שאת היום, מחר ובכל יום שתבחרי.</p>
+      <div class="promise">
+        <span>4 שאלות קצרות</span><span class="dot"></span>
+        <span>פחות מדקה</span><span class="dot"></span>
+        <span>ובסוף מחכה לך מתנה של <b>30% הנחה</b></span>
+      </div>
+      <button class="btn" style="margin-top:18px" onclick="startQuiz()">גלי מי נועד עבורך <span class="chev">‹‹</span></button>
+      <p class="footstrip">לרגל ט״ו באב · קוד הנחה <b>${COUPON}</b> · בתוקף לזמן מוגבל</p>
     </div>`;
 }
 
+/* ---------- SCREENS 2–5 : Questions ---------- */
 function renderQuestion(){
   const q = QUESTIONS[state.qIndex]; const total = QUESTIONS.length;
   const dots = Array.from({length:total},(_,i)=>`<span class="${i<=state.qIndex?"on":""}"></span>`).join("");
@@ -297,103 +354,125 @@ function renderQuestion(){
       <div class="q-head">
         <p class="kicker">QUESTION ${state.qIndex+1}</p>
         <h2 class="q-title">${q.title}</h2>
-        ${q.sub?`<p class="q-sub">${q.sub}</p>`:""}
       </div>
       <div class="options">
         ${q.options.map((o,i)=>`<button class="opt" onclick="pick('${o.key}')">
-          <span class="o-emoji">${["א","ב","ג"][i]}</span>
-          <span class="o-text"><span class="o-title">${o.title}</span>${o.desc?`<span class="o-desc">${o.desc}</span>`:""}</span>
+          <img class="o-thumb" src="img/q${state.qIndex+1}-${i+1}.jpg" alt="" loading="lazy" />
+          <span class="o-text"><span class="o-title">${o.title}</span><span class="o-desc">${o.desc}</span></span>
           <span class="o-arrow">‹</span></button>`).join("")}
       </div>
     </div>`;
 }
 
-function renderEmail(){
-  stage.innerHTML = `
-    <div class="topbar">
-      <button class="back" onclick="goBack()" aria-label="חזרה">›</button>
-      <div class="dots">${"<span class='on'></span>".repeat(4)}</div>
-      <div class="qcount"></div>
-    </div>
-    <div class="pad center" style="padding-top:20px">
-      ${ORN}
-      <h2 class="q-title">מצאנו את הזיווג שלך</h2>
-      <p class="q-sub" style="margin-top:10px">לאן לשלוח את ההתאמה שלך ואת קוד ה‑30%?<br>נשמור לך אותם גם להמשך — בלי לחץ.</p>
-      <input class="field" id="fname" placeholder="השם שלך" />
-      <input class="field" id="email" type="email" placeholder="כתובת אימייל" />
-      <div style="margin-top:20px">
-        <button class="btn" onclick="goResult()">גלי את ההתאמה</button>
-        <button class="btn ghost" onclick="goResult()" style="margin-top:8px">דלגי — קחי אותי ישר לתוצאה</button>
-      </div>
-      <p class="fineprint">בלי ספאם. רק העור שלך והקוד שלך.</p>
-    </div>`;
-}
 
+/* ---------- SCREEN 7 : Result ---------- */
 function renderResult(){
   const key = scoreMatch(); const m = MATCHES[key];
-  const items = [{...m, bottle:m.bottle, name:m.name, line:m.line, price:m.price, why:m.why}, ...m.support];
-  const subtotal = items.reduce((s,p)=>s+p.price,0);
+  const subtotal   = m.hero.price + m.mate.price;
   const discounted = Math.round(subtotal*(1-DISCOUNT));
   const priceRow = p => { const now=Math.round(p.price*(1-DISCOUNT));
     return `<div class="pprice"><span class="now">${money(now)}</span><span class="was">${money(p.price)}</span><span class="save">‑30%</span></div>`; };
+  dl("quiz_result",{result_key:key,result_name:m.name,result_style:m.style,products_count:2,total_value:discounted,currency:"ILS",coupon_code:COUPON});
+  const card = (p,hero)=>`<div class="product${hero?" hero-product":""}">
+        ${hero?`<span class="soul-tag">הזיווג שלך</span>`:""}
+        <div class="prow">
+          <div class="pimg">${p.bottle}</div>
+          <div class="pinfo">
+            <div class="pline">${p.line}</div>
+            <div class="pname">${p.name}</div>
+            <div class="pwhy">${p.why}</div>
+            ${priceRow(p)}
+          </div>
+        </div>
+        <div class="padd"><button class="btn add" onclick="addToCart('${p.vid}','${p.name.replace(/'/g,'')}',${p.price})">הוסיפי ישירות לסל שלך</button></div>
+      </div>`;
 
   stage.innerHTML = `
+    <div class="result-photo" style="background-image:url('img/result-${key}.jpg')">
+      <div class="rp-scrim">
+        <p class="love-style">✦ &nbsp;${m.style}</p>
+        <p class="result-intro">הכירי את הזיווג המדויק שלך</p>
+        <h2 class="result-name">${m.name}</h2>
+      </div>
+    </div>
     <div class="result-band">
-      <div class="match-badge"><span class="match-pct">${m.pct}%</span><span class="match-lbl">התאמה</span></div>
-      <p class="love-style">${m.emoji} &nbsp;${m.loveStyle}</p>
-      <h2 class="result-name">${m.name}</h2>
       <p class="result-tag">${m.tagline}</p>
     </div>
     <div class="pad">
-      <div class="reading">${m.reading}</div>
-      ${ORN}
-      <h3 class="ritual-h">הריטואל המושלם שלכן</h3>
-      <p class="ritual-sub">המוצר שנברא בשבילך · ושניים שמשלימים אותו</p>
 
-      <div class="product hero-product">
-        <span class="soul-tag">הזיווג שלך</span>
-        <div class="pimg">${m.bottle}</div>
-        <div class="pinfo"><div class="pline">${m.line}</div><div class="pname">${m.name}</div>
-          <div class="pwhy">${m.why}</div>${priceRow(m)}</div>
-      </div>
-      ${m.support.map(p=>`<div class="product"><div class="pimg">${p.bottle}</div>
-        <div class="pinfo"><div class="pline">${p.line}</div><div class="pname">${p.name}</div>
-          <div class="pwhy">${p.why}</div>${priceRow(p)}</div></div>`).join("")}
-
+      <!-- Prominent coupon box (brief screen 7) -->
       <div class="coupon">
-        <div class="c-top">מתנת טו באב שלך</div>
-        <div class="c-code">${COUPON}</div>
-        <div class="c-sub">30% הנחה על הריטואל המושלם · בתוקף לזמן מוגבל</div>
-        <button class="btn gold" onclick="copyCode()" id="copyBtn">העתיקי את הקוד</button>
+        <div class="c-gift">מתנת ט״ו באב שלך</div>
+        <div class="c-head">הנה ה‑30% הנחה שלך לחגיגת ט״ו באב!</div>
+        <div class="c-pill" onclick="copyCode()" id="copyPill">
+          <span class="c-lbl">קוד קופון:</span>
+          <span class="c-code">${COUPON}</span>
+          <span class="c-copy" id="copyState">העתקה ‹</span>
+        </div>
+        <div class="c-note">לחצי להעתקה · הקוד יחכה לך גם במייל</div>
       </div>
 
-      <div class="total"><span>סה״כ לריטואל המלא</span>
+      <div class="reading">${m.reading}</div>
+
+      ${ORN}
+      <h3 class="ritual-h">הזוג המושלם שלך</h3>
+      <p class="ritual-sub">מוצר הזיווג · ובן-זוג שמשלים אותו · קני כזוג או בנפרד</p>
+
+      ${card(m.hero,true)}
+      ${card(m.mate,false)}
+
+      <div class="total"><span>סה״כ לזוג</span>
         <span><span class="was">${money(subtotal)}</span> &nbsp; <span class="t-now">${money(discounted)}</span></span></div>
 
       <div style="margin-top:16px">
-        <button class="btn gold" onclick="alert('בבנייה האמיתית: לעגלת AHAVA הישראלית עם הקוד מוחל אוטומטית')">הוסיפי את הריטואל לעגלה</button>
+        <button class="btn gold" onclick="addSet('${key}')">הוסיפי את הזוג לסל</button>
         <button class="btn ghost" onclick="restart()" style="margin-top:8px">עשי את הקוויז שוב</button>
       </div>
+
       <p class="share">אהבת? <a href="#" onclick="return false">שתפי חברה וגלו מי הזיווג שלה →</a></p>
+      <p class="fineprint" style="margin-top:18px">*${FINEPRINT}</p>
     </div>`;
 }
 
-function startQuiz(){ state={step:"question",qIndex:0,votes:[]}; render(); }
-function pick(key){ state.votes[state.qIndex]=key;
-  if(state.qIndex<QUESTIONS.length-1){ state.qIndex++; state.step="question"; } else { state.step="email"; } render(); }
+/* ---------- flow ---------- */
+function startQuiz(){ state={step:"question",qIndex:0,votes:[]}; dl("quiz_start"); fbqTrack("ViewContent",{content_name:QUIZ_ID}); render(); }
+function pick(key){
+  const q=QUESTIONS[state.qIndex], o=q.options.find(x=>x.key===key)||{};
+  state.votes[state.qIndex]=key;
+  dl("quiz_answer_"+(state.qIndex+1),{question_number:state.qIndex+1,question_title:q.title,answer_value:key,answer_label:o.title});
+  if(state.qIndex<QUESTIONS.length-1){ state.qIndex++; state.step="question"; }
+  else { const k=scoreMatch(); dl("quiz_complete",{questions_total:QUESTIONS.length,result_key:k}); state.step="result"; }
+  render(); }
 function goBack(){
-  if(state.step==="email"){ state.step="question"; state.qIndex=QUESTIONS.length-1; }
-  else if(state.step==="question" && state.qIndex>0){ state.qIndex--; }
+  if(state.step==="result"){ state.step="question"; state.qIndex=QUESTIONS.length-1; }
+  else if(state.step==="question" && state.qIndex>0){ dl("quiz_navigation",{nav_direction:"back",from_step:"q"+(state.qIndex+1),to_step:"q"+state.qIndex}); state.qIndex--; }
   else { state.step="landing"; } render(); }
-function goResult(){ state.step="result"; render(); }
 function restart(){ state={step:"landing",qIndex:0,votes:[]}; render(); }
+
+/* tally votes; on a tie, the user's earliest-voted persona wins (stable) */
 function scoreMatch(){
   const tally={}; state.votes.forEach(k=>tally[k]=(tally[k]||0)+1);
-  let best=null,bestN=-1; const order=[state.votes[0],...Object.keys(MATCHES)];
-  order.forEach(k=>{ if(k&&(tally[k]||0)>bestN){ bestN=tally[k]||0; best=k; }}); return best||"glow"; }
-function copyCode(){ navigator.clipboard?.writeText(COUPON);
-  const b=document.getElementById("copyBtn"); if(b){ b.textContent="✓ הקוד הועתק"; setTimeout(()=>b.textContent="העתיקי את הקוד",1800);} }
+  let best=state.votes[0]||"radiant", bestN=0;
+  state.votes.forEach(k=>{ if((tally[k]||0)>bestN){ bestN=tally[k]; best=k; }});
+  return MATCHES[best]?best:"radiant";
+}
 
+function copyCode(){ navigator.clipboard?.writeText(COUPON);
+  const s=document.getElementById("copyState"); if(s){ s.textContent="✓ הועתק"; setTimeout(()=>s.textContent="העתקה ‹",1800);} }
+function addToCart(vid,name,price){
+  const v=Math.round(price*(1-DISCOUNT)), url=cartUrl([vid]);
+  dl("quiz_add_to_cart",{atc_type:"single",product_ids:[vid],product_names:[name],product_count:1,value:v,currency:"ILS",cart_url:url});
+  fbqTrack("AddToCart",{value:v,currency:"ILS",content_ids:[vid],content_type:"product",num_items:1});
+  setTimeout(()=>{ window.location.href=url; },200);
+}
+function addSet(key){
+  const m=MATCHES[key], vids=[m.hero.vid,m.mate.vid], v=Math.round((m.hero.price+m.mate.price)*(1-DISCOUNT)), url=cartUrl(vids);
+  dl("quiz_add_to_cart",{atc_type:"bundle",product_ids:vids,product_names:[m.hero.name,m.mate.name],product_count:2,bundle_price:v,value:v,currency:"ILS",cart_url:url});
+  fbqTrack("AddToCart",{value:v,currency:"ILS",content_ids:vids,content_type:"product_group",num_items:2});
+  setTimeout(()=>{ window.location.href=url; },200);
+}
+
+loadAnalytics();
 render();
 </script>
 </body>
