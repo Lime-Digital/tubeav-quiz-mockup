@@ -61,13 +61,13 @@
 
   /* ---------- LANDING : photo-led hero (warm editorial, like the creatives) ---------- */
   .hero-photo{
-    position:relative;height:clamp(300px,46vh,420px);width:100%;
+    position:relative;width:100%;aspect-ratio:1/1;max-height:560px;
     background-image:url("img/hero-landing.jpg");
-    background-size:cover;background-position:center;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
     background-color:var(--sand);
   }
-  .hero-photo .hp-logo{position:absolute;top:18px;left:50%;transform:translateX(-50%);
-    width:120px;height:auto;filter:brightness(0) invert(1) drop-shadow(0 1px 7px rgba(43,33,24,.5))}
+  .hero-photo .hp-logo{position:absolute;top:8px;left:50%;transform:translateX(-50%);
+    width:118px;height:auto;filter:brightness(0) invert(1) drop-shadow(0 1px 7px rgba(43,33,24,.5))}
   .hero-photo .hp-title{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;
     font-weight:800;font-size:clamp(34px,9vw,52px);letter-spacing:.01em;color:#9E2B2B;text-shadow:0 2px 10px rgba(255,255,255,.35)}
   .hero-photo .hp-title .en{font-weight:700;letter-spacing:.04em}
@@ -216,7 +216,7 @@
   }
   @media (min-width:760px){
     .wrap{max-width:880px}
-    .hero-photo{height:clamp(420px,60vh,640px)}
+    .hero-photo{max-height:620px}
     .pad{padding:38px 60px 46px}
     .hero-h1{font-size:40px}
     .lead{font-size:16px;max-width:600px}
