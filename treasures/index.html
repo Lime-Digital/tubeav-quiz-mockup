@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AHAVA · The Dead Sea Treasures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --beige:#EFE7D9;        /* matte warm base */
+    --beige-deep:#E3D6C3;
+    --blue:#1C3D55;         /* deep AHAVA blue */
+    --blue-soft:#27516E;
+    --gold:#C4A265;
+    --gold-soft:#E7CF9B;
+    --ink:#2B2118;
+    --muted:#7C7264;
+    --line:#E0D7C7;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(196,162,101,.16), transparent 55%),
+      radial-gradient(90% 70% at 50% 115%, rgba(28,61,85,.12), transparent 60%),
+      var(--beige);
+    color:var(--ink);
+    font-family:"Assistant",sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;
+    padding:34px 20px 60px;overflow-x:hidden;
+  }
+  .serif{font-family:"Cormorant Garamond",serif}
+
+  /* ---- header ---- */
+  .logo{font-family:"Assistant";font-weight:600;letter-spacing:.5em;font-size:15px;color:var(--blue);padding-right:.5em}
+  .kicker{margin-top:26px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600;text-align:center}
+  h1{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(38px,7vw,62px);line-height:1.05;
+    color:var(--blue);text-align:center;margin:12px 0 0;letter-spacing:.005em}
+  .sub{font-size:16px;color:var(--muted);text-align:center;max-width:430px;margin:16px auto 0;font-weight:300;line-height:1.6}
+  .orn{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px 0 2px}
+  .orn .r{height:1px;width:46px;background:rgba(196,162,101,.5)}
+  .orn .d{color:var(--gold);font-size:12px}
+
+  /* ---- chests ---- */
+  .stage{width:100%;max-width:1040px;flex:1;display:flex;align-items:center;justify-content:center}
+  .chests{display:flex;gap:clamp(18px,4vw,56px);justify-content:center;align-items:flex-end;flex-wrap:wrap;
+    margin-top:42px;transition:opacity .6s ease,transform .6s ease}
+  .chest{position:relative;width:clamp(220px,27vw,300px);cursor:pointer;border:none;background:none;
+    display:flex;flex-direction:column;align-items:center;gap:16px}
+  .chest .lid{position:relative;width:100%;aspect-ratio:1/1}
+  .chest .lid img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+    filter:drop-shadow(0 22px 30px rgba(43,33,24,.22));transition:opacity .5s ease}
+  .chest .lid .open{opacity:0}
+  .chest .float{animation:float 4.5s ease-in-out infinite}
+  .chest:nth-child(2) .float{animation-delay:-1.5s}
+  .chest:nth-child(3) .float{animation-delay:-3s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .chest .tname{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--blue);letter-spacing:.02em}
+  .chest .thint{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:-10px}
+  .chest .label{text-align:center;transition:opacity .4s}
+  .chest:hover .float{transform:translateY(-14px)}
+  .chest:hover .lid img{filter:drop-shadow(0 26px 34px rgba(43,33,24,.28))}
+
+  /* sparkle / gold dust burst */
+  .spark{position:absolute;top:42%;left:50%;width:7px;height:7px;border-radius:50%;
+    background:radial-gradient(circle,#fff,var(--gold-soft) 45%,rgba(196,162,101,0));opacity:0;pointer-events:none}
+  .chest.burst .spark{animation:spark .9s ease-out forwards}
+  @keyframes spark{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}
+    20%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1)}}
+  .chest.burst .glow{position:absolute;top:42%;left:50%;width:60%;height:60%;transform:translate(-50%,-50%);
+    border-radius:50%;background:radial-gradient(circle,rgba(231,207,155,.7),transparent 65%);
+    opacity:0;animation:glow 1s ease-out forwards;pointer-events:none}
+  @keyframes glow{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.6)}}
+  .chest.opened .closed{opacity:0}
+  .chest.opened .open{opacity:1}
+
+  /* ---- reveal card ---- */
+  .reveal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;
+    background:rgba(43,33,24,.34);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .5s ease;z-index:40}
+  .reveal.on{opacity:1;visibility:visible}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:22px;max-width:430px;width:100%;
+    padding:36px 30px 30px;text-align:center;box-shadow:0 30px 70px rgba(43,33,24,.28);
+    transform:translateY(18px) scale(.97);transition:transform .55s cubic-bezier(.2,.8,.2,1);position:relative}
+  .reveal.on .card{transform:none}
+  .card .gift-img{width:148px;height:148px;object-fit:contain;margin:0 auto 6px;display:block;
+    filter:drop-shadow(0 16px 24px rgba(43,33,24,.16))}
+  .card .reveal-k{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .card .gift-name{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:30px;line-height:1.15;color:var(--blue);margin:8px 0 10px}
+  .card .gift-desc{font-size:15px;color:var(--muted);line-height:1.6;font-weight:300;max-width:330px;margin:0 auto 22px}
+  .coupon{border:1.5px dashed var(--gold);border-radius:14px;padding:14px 16px;background:#FBF7EF;margin:0 0 22px}
+  .coupon .cl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .coupon .cc{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:30px;letter-spacing:.12em;color:var(--blue);margin-top:3px}
+  .btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;border:none;cursor:pointer;
+    background:var(--blue);color:#fff;font-family:"Assistant";font-weight:600;font-size:14.5px;letter-spacing:.04em;
+    padding:17px 22px;border-radius:999px;transition:background .25s}
+  .btn:hover{background:var(--gold);color:var(--ink)}
+  .again{display:inline-block;margin-top:16px;font-size:13px;color:var(--muted);cursor:pointer;font-weight:500;letter-spacing:.02em}
+  .again:hover{color:var(--blue)}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--blue);color:#fff;
+    font-size:13px;font-weight:500;padding:11px 20px;border-radius:999px;opacity:0;transition:.35s;z-index:60}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:720px){
+    .chests{flex-direction:column;align-items:center;gap:30px;margin-top:30px}
+    .chest{width:min(74vw,300px)}
+    .card{padding:30px 22px 26px}
+  }
+  .flag{position:fixed;top:10px;left:10px;background:var(--blue);color:#fff;font-size:10.5px;font-weight:500;
+    padding:4px 10px;border-radius:999px;opacity:.7;letter-spacing:.03em;z-index:70}
+</style>
+</head>
+<body>
+<div class="flag">DEMO · sample gifts</div>
+
+<p class="logo">AHAVA</p>
+<p class="kicker">A Tu B'Av Ritual</p>
+<h1 class="serif">The Dead Sea Treasures</h1>
+<div class="orn"><span class="r"></span><span class="d">✦</span><span class="r"></span></div>
+<p class="sub">Three treasures, hidden in the minerals of the Dead Sea. Choose one to reveal the gift that was made for you.</p>
+
+<div class="stage">
+  <div class="chests" id="chests"></div>
+</div>
+
+<div class="reveal" id="reveal">
+  <div class="card" id="card"></div>
+</div>
+<div class="toast" id="toast">✓ Code copied</div>
+
+<script>
+const STORE  = "https://www.ahava.co.il";
+const COUPON = "AHAVA";
+const cartUrl = vid => STORE + "/discount/" + COUPON + "?redirect=" +
+  encodeURIComponent("/cart/" + vid + ":1?utm_source=treasures&utm_medium=referral&utm_campaign=dead-sea-treasures");
+
+const TREASURES = [
+  { roman:"I",  name:"Crystal Osmoter™ X6 Serum",
+    desc:"An intense surge of Dead Sea minerals for a luminous, glass-skin glow.",
+    vid:"40565506113722",
+    img:"https://cdn.shopify.com/s/files/1/0560/1833/7978/files/CrystalOsmoterTMX6Serum-product-image.png?v=1699774042" },
+  { roman:"II", name:"Osmoter™ Concentrate Cream",
+    desc:"Featherlight mineral hydration with all-day comfort and blue-light defense.",
+    vid:"40575795527866",
+    img:"https://cdn.shopify.com/s/files/1/0560/1833/7978/files/YB-OsmoterConcentrateHydratingCream3.png?v=1733730115" },
+  { roman:"III",name:"Softening Butter Salt Scrub",
+    desc:"A buttery Dead Sea salt scrub that melts into silk for body and soul.",
+    vid:"40565514600634",
+    img:"https://cdn.shopify.com/s/files/1/0560/1833/7978/products/softening-butter-dead-sea-salt-scrub.png?v=1636622131" }
+];
+
+const CLOSED = "img/chest-closed.png";
+const OPEN   = "img/chest-open.png";
+
+const chests = document.getElementById("chests");
+chests.innerHTML = TREASURES.map((t,i)=>`
+  <button class="chest" data-i="${i}" aria-label="Treasure ${t.roman}">
+    <span class="float">
+      <span class="lid">
+        <img class="closed" src="${CLOSED}" alt="" />
+        <img class="open" src="${OPEN}" alt="" />
+        <span class="glow"></span>
+        ${Array.from({length:14},(_,k)=>{const a=k/14*6.283,r=58+(k%3)*22;
+          return `<span class="spark" style="--dx:${(Math.cos(a)*r).toFixed(0)}px;--dy:${(Math.sin(a)*r-30).toFixed(0)}px;animation-delay:${(k%5)*40}ms"></span>`;}).join("")}
+      </span>
+    </span>
+    <span class="label"><span class="thint">Treasure ${t.roman}</span><br><span class="tname serif">Open me</span></span>
+  </button>`).join("");
+
+let opening=false;
+chests.querySelectorAll(".chest").forEach(el=>{
+  el.addEventListener("click",()=>{
+    if(opening||el.classList.contains("opened")) return;
+    opening=true;
+    el.classList.add("burst");
+    setTimeout(()=>el.classList.add("opened"),420);
+    setTimeout(()=>{ showGift(+el.getAttribute("data-i")); opening=false; },1000);
+  });
+});
+
+const reveal=document.getElementById("reveal"), card=document.getElementById("card");
+function showGift(i){
+  const t=TREASURES[i];
+  card.innerHTML=`
+    <img class="gift-img" src="${t.img}" alt="${t.name}" />
+    <p class="reveal-k">Your Treasure</p>
+    <h2 class="gift-name serif">${t.name}</h2>
+    <p class="gift-desc">${t.desc}</p>
+    <div class="coupon"><div class="cl">Your gift code</div><div class="cc">${COUPON}</div></div>
+    <button class="btn" id="claim">Claim Your Gift &amp; Continue Shopping</button>
+    <span class="again" id="again">‹ Choose another treasure</span>`;
+  reveal.classList.add("on");
+  document.getElementById("claim").onclick=()=>{
+    try{navigator.clipboard.writeText(COUPON);}catch(e){}
+    toast();
+    setTimeout(()=>{ window.location.href=cartUrl(t.vid); },650);
+  };
+  document.getElementById("again").onclick=closeReveal;
+}
+function closeReveal(){
+  reveal.classList.remove("on");
+  chests.querySelectorAll(".chest").forEach(el=>el.classList.remove("burst","opened"));
+}
+reveal.addEventListener("click",e=>{ if(e.target===reveal) closeReveal(); });
+let tT;
+function toast(){const t=document.getElementById("toast");t.classList.add("on");clearTimeout(tT);tT=setTimeout(()=>t.classList.remove("on"),1800);}
+</script>
+</body>
+</html>
