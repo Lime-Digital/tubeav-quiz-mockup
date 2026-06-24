@@ -197,6 +197,13 @@
   .fade{animation:fade .45s ease}
   @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
+  /* touch: don't let :hover "stick" onto the same slot on the next question */
+  @media (hover:none){
+    .opt:hover{border-color:var(--line);background:var(--card)}
+    .btn:hover{background:var(--ink)}
+    .btn.gold:hover{background:var(--gold);color:var(--ink)}
+    .opt:active{border-color:var(--gold);background:var(--inset)}
+  }
   @media (max-width:430px){
     .pad{padding:24px 18px 28px}
     h1{font-size:27px}
