@@ -1,212 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AHAVA · The Dead Sea Treasures</title>
+<title>AHAVA · אוצרות ים המלח</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --beige:#EFE7D9;        /* matte warm base */
-    --beige-deep:#E3D6C3;
-    --blue:#1C3D55;         /* deep AHAVA blue */
-    --blue-soft:#27516E;
-    --gold:#C4A265;
-    --gold-soft:#E7CF9B;
-    --ink:#2B2118;
-    --muted:#7C7264;
-    --line:#E0D7C7;
-    --card:#FFFFFF;
+    --bg:#0C0A07; --bg2:#151009;
+    --blue:#1C3D55; --gold:#C4A265; --gold-soft:#E7CF9B; --gold-deep:#9C7C42;
+    --cream:#F3EADA; --muted:#B6A88E; --line:rgba(196,162,101,.35);
   }
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    background:
-      radial-gradient(120% 80% at 50% -10%, rgba(196,162,101,.16), transparent 55%),
-      radial-gradient(90% 70% at 50% 115%, rgba(28,61,85,.12), transparent 60%),
-      var(--beige);
-    color:var(--ink);
-    font-family:"Assistant",sans-serif;
-    -webkit-font-smoothing:antialiased;
-    min-height:100vh;display:flex;flex-direction:column;align-items:center;
-    padding:34px 20px 60px;overflow-x:hidden;
-  }
-  .serif{font-family:"Cormorant Garamond",serif}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{min-height:100%}
+  body{background:var(--bg);color:var(--cream);font-family:"Assistant",sans-serif;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Frank Ruhl Libre",serif}
 
-  /* ---- header ---- */
-  .logo{font-family:"Assistant";font-weight:600;letter-spacing:.5em;font-size:15px;color:var(--blue);padding-right:.5em}
-  .kicker{margin-top:26px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600;text-align:center}
-  h1{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(38px,7vw,62px);line-height:1.05;
-    color:var(--blue);text-align:center;margin:12px 0 0;letter-spacing:.005em}
-  .sub{font-size:16px;color:var(--muted);text-align:center;max-width:430px;margin:16px auto 0;font-weight:300;line-height:1.6}
-  .orn{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px 0 2px}
-  .orn .r{height:1px;width:46px;background:rgba(196,162,101,.5)}
-  .orn .d{color:var(--gold);font-size:12px}
+  /* nav */
+  .nav{position:relative;z-index:5;display:flex;justify-content:center;align-items:center;
+    padding:16px;border-bottom:1px solid rgba(196,162,101,.16)}
+  .nav img{width:104px;height:auto;filter:brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0,0,0,.6))}
 
-  /* ---- chests ---- */
-  .stage{width:100%;max-width:1040px;flex:1;display:flex;align-items:center;justify-content:center}
-  .chests{display:flex;gap:clamp(18px,4vw,56px);justify-content:center;align-items:flex-end;flex-wrap:wrap;
-    margin-top:42px;transition:opacity .6s ease,transform .6s ease}
-  .chest{position:relative;width:clamp(220px,27vw,300px);cursor:pointer;border:none;background:none;
-    display:flex;flex-direction:column;align-items:center;gap:16px}
-  .chest .lid{position:relative;width:100%;aspect-ratio:1/1}
-  .chest .lid img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
-    filter:drop-shadow(0 22px 30px rgba(43,33,24,.22));transition:opacity .5s ease}
-  .chest .lid .open{opacity:0}
-  .chest .float{animation:float 4.5s ease-in-out infinite}
-  .chest:nth-child(2) .float{animation-delay:-1.5s}
-  .chest:nth-child(3) .float{animation-delay:-3s}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-  .chest .tname{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--blue);letter-spacing:.02em}
-  .chest .thint{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:-10px}
-  .chest .label{text-align:center;transition:opacity .4s}
-  .chest:hover .float{transform:translateY(-14px)}
-  .chest:hover .lid img{filter:drop-shadow(0 26px 34px rgba(43,33,24,.28))}
+  /* scene */
+  .scene{position:relative;width:100%;margin:0 auto;overflow:hidden;background:var(--bg)}
+  .scene-img{display:block;width:100%;height:auto}
+  .scene-img.mob{display:none}
+  /* soft fade so the photo melts into the page */
+  .scene::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg, rgba(12,10,7,.55) 0%, transparent 22%, transparent 78%, rgba(12,10,7,.85) 100%)}
 
-  /* sparkle / gold dust burst */
-  .spark{position:absolute;top:42%;left:50%;width:7px;height:7px;border-radius:50%;
-    background:radial-gradient(circle,#fff,var(--gold-soft) 45%,rgba(196,162,101,0));opacity:0;pointer-events:none}
-  .chest.burst .spark{animation:spark .9s ease-out forwards}
-  @keyframes spark{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}
-    20%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1)}}
-  .chest.burst .glow{position:absolute;top:42%;left:50%;width:60%;height:60%;transform:translate(-50%,-50%);
-    border-radius:50%;background:radial-gradient(circle,rgba(231,207,155,.7),transparent 65%);
-    opacity:0;animation:glow 1s ease-out forwards;pointer-events:none}
-  @keyframes glow{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.6)}}
-  .chest.opened .closed{opacity:0}
-  .chest.opened .open{opacity:1}
+  .head{position:absolute;top:5%;left:0;right:0;text-align:center;z-index:3;padding:0 22px}
+  .kicker{font-size:clamp(10px,1.4vw,13px);letter-spacing:.36em;color:var(--gold-soft);font-weight:600;margin-bottom:12px}
+  h1{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:clamp(26px,4.2vw,52px);line-height:1.12;
+    color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.6);letter-spacing:.01em}
+  .sub{font-size:clamp(13px,1.5vw,16px);color:var(--cream);opacity:.86;font-weight:300;max-width:520px;
+    margin:14px auto 0;line-height:1.6;text-shadow:0 1px 10px rgba(0,0,0,.7)}
 
-  /* ---- reveal card ---- */
-  .reveal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;
-    background:rgba(43,33,24,.34);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .5s ease;z-index:40}
+  /* chest pick buttons (positioned over each chest) */
+  .pick{position:absolute;z-index:4;transform:translate(50%,-50%);
+    background:rgba(12,10,7,.55);backdrop-filter:blur(2px);border:1px solid var(--gold);color:var(--gold-soft);
+    font-family:"Assistant";font-weight:600;font-size:clamp(11px,1.15vw,13px);letter-spacing:.04em;
+    padding:10px 18px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:.25s;
+    box-shadow:0 6px 22px rgba(0,0,0,.45)}
+  .pick:hover{background:var(--gold);color:#1a1305;border-color:var(--gold);box-shadow:0 0 26px rgba(196,162,101,.6)}
+  .pick .ar{opacity:.7}
+  /* desktop chest coordinates */
+  .pick.d1{left:25%;top:82%}
+  .pick.d2{left:50%;top:90%}
+  .pick.d3{left:75%;top:82%}
+  .pick.m1,.pick.m2,.pick.m3{display:none}
+
+  /* glow + sparkle burst layer over a chosen chest */
+  .fx{position:absolute;z-index:2;width:230px;height:230px;transform:translate(50%,-50%);pointer-events:none;opacity:0}
+  .fx.go{animation:fxGo 1s ease-out forwards}
+  .fx .ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(231,207,155,.55),transparent 62%)}
+  @keyframes fxGo{0%{opacity:0;transform:translate(50%,-50%) scale(.5)}30%{opacity:1}100%{opacity:0;transform:translate(50%,-50%) scale(1.5)}}
+  .fx .sp{position:absolute;top:50%;left:50%;width:7px;height:7px;border-radius:50%;
+    background:radial-gradient(circle,#fff,var(--gold-soft) 45%,transparent);opacity:0}
+  .fx.go .sp{animation:sp .9s ease-out forwards}
+  @keyframes sp{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}25%{opacity:1}
+    100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1)}}
+
+  /* reveal */
+  .reveal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:22px;z-index:40;
+    background:radial-gradient(60% 60% at 50% 40%, rgba(28,61,85,.4), rgba(8,6,4,.86));
+    opacity:0;visibility:hidden;transition:opacity .55s ease;backdrop-filter:blur(4px)}
   .reveal.on{opacity:1;visibility:visible}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:22px;max-width:430px;width:100%;
-    padding:36px 30px 30px;text-align:center;box-shadow:0 30px 70px rgba(43,33,24,.28);
-    transform:translateY(18px) scale(.97);transition:transform .55s cubic-bezier(.2,.8,.2,1);position:relative}
+  .card{position:relative;width:100%;max-width:420px;text-align:center;
+    background:linear-gradient(180deg,#17120B,#0E0B07);border:1px solid var(--line);border-radius:20px;
+    padding:34px 28px 28px;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 1px rgba(231,207,155,.06);
+    transform:translateY(20px) scale(.96);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .card::before{content:"";position:absolute;inset:10px;border:1px solid rgba(196,162,101,.18);border-radius:14px;pointer-events:none}
   .reveal.on .card{transform:none}
-  .card .gift-img{width:148px;height:148px;object-fit:contain;margin:0 auto 6px;display:block;
-    filter:drop-shadow(0 16px 24px rgba(43,33,24,.16))}
-  .card .reveal-k{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
-  .card .gift-name{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:30px;line-height:1.15;color:var(--blue);margin:8px 0 10px}
-  .card .gift-desc{font-size:15px;color:var(--muted);line-height:1.6;font-weight:300;max-width:330px;margin:0 auto 22px}
-  .coupon{border:1.5px dashed var(--gold);border-radius:14px;padding:14px 16px;background:#FBF7EF;margin:0 0 22px}
-  .coupon .cl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
-  .coupon .cc{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:30px;letter-spacing:.12em;color:var(--blue);margin-top:3px}
+  .gift-img-wrap{width:160px;height:160px;margin:0 auto 8px;border-radius:50%;position:relative;
+    background:radial-gradient(circle,#F6EFE2 0%,#EadFca 70%,#d8c8a8 100%);
+    box-shadow:0 0 40px rgba(231,207,155,.3),inset 0 -6px 18px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center}
+  .gift-img-wrap img{width:120px;height:120px;object-fit:contain;filter:drop-shadow(0 10px 16px rgba(0,0,0,.25))}
+  .reveal-k{font-size:11px;letter-spacing:.3em;color:var(--gold-soft);font-weight:600;margin-top:6px}
+  .gift-name{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:27px;line-height:1.2;color:#fff;margin:8px 0 10px}
+  .gift-desc{font-size:14.5px;color:var(--muted);line-height:1.65;font-weight:300;max-width:320px;margin:0 auto 22px}
+  .coupon{border:1.5px dashed var(--gold);border-radius:14px;padding:13px 16px;background:rgba(196,162,101,.07);margin-bottom:22px}
+  .coupon .cl{font-size:11px;letter-spacing:.22em;color:var(--muted);font-weight:600}
+  .coupon .cc{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:28px;letter-spacing:.14em;color:var(--gold-soft);margin-top:2px}
   .btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;border:none;cursor:pointer;
-    background:var(--blue);color:#fff;font-family:"Assistant";font-weight:600;font-size:14.5px;letter-spacing:.04em;
-    padding:17px 22px;border-radius:999px;transition:background .25s}
-  .btn:hover{background:var(--gold);color:var(--ink)}
-  .again{display:inline-block;margin-top:16px;font-size:13px;color:var(--muted);cursor:pointer;font-weight:500;letter-spacing:.02em}
-  .again:hover{color:var(--blue)}
-  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--blue);color:#fff;
-    font-size:13px;font-weight:500;padding:11px 20px;border-radius:999px;opacity:0;transition:.35s;z-index:60}
-  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+    background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:#1a1305;font-family:"Assistant";
+    font-weight:700;font-size:15px;letter-spacing:.02em;padding:17px 22px;border-radius:999px;transition:.25s;
+    box-shadow:0 8px 28px rgba(196,162,101,.32)}
+  .btn:hover{filter:brightness(1.06);box-shadow:0 0 30px rgba(231,207,155,.5)}
+  .again{display:inline-block;margin-top:15px;font-size:13px;color:var(--muted);cursor:pointer;font-weight:500}
+  .again:hover{color:var(--gold-soft)}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(18px);
+    background:var(--gold);color:#1a1305;font-size:13px;font-weight:700;padding:11px 20px;border-radius:999px;
+    opacity:0;transition:.35s;z-index:60}
+  .toast.on{opacity:1;transform:translateX(-50%)}
 
-  @media(max-width:720px){
-    .chests{flex-direction:column;align-items:center;gap:30px;margin-top:30px}
-    .chest{width:min(74vw,300px)}
-    .card{padding:30px 22px 26px}
+  .flag{position:fixed;top:8px;right:8px;background:rgba(196,162,101,.85);color:#1a1305;font-size:10px;font-weight:700;
+    padding:3px 9px;border-radius:999px;z-index:70;letter-spacing:.02em}
+
+  @media(max-width:760px){
+    .scene-img.desk{display:none}
+    .scene-img.mob{display:block}
+    .pick.d1,.pick.d2,.pick.d3{display:none}
+    .pick.m1,.pick.m2,.pick.m3{display:block}
+    .pick.m1{left:47%;top:34%}
+    .pick.m2{left:51%;top:53%}
+    .pick.m3{left:49%;top:75%}
+    .head{top:2.5%}
   }
-  .flag{position:fixed;top:10px;left:10px;background:var(--blue);color:#fff;font-size:10.5px;font-weight:500;
-    padding:4px 10px;border-radius:999px;opacity:.7;letter-spacing:.03em;z-index:70}
 </style>
 </head>
 <body>
-<div class="flag">DEMO · sample gifts</div>
+<div class="flag">DEMO</div>
 
-<p class="logo">AHAVA</p>
-<p class="kicker">A Tu B'Av Ritual</p>
-<h1 class="serif">The Dead Sea Treasures</h1>
-<div class="orn"><span class="r"></span><span class="d">✦</span><span class="r"></span></div>
-<p class="sub">Three treasures, hidden in the minerals of the Dead Sea. Choose one to reveal the gift that was made for you.</p>
+<div class="nav"><img src="img/ahava-logo.png" alt="AHAVA" /></div>
 
-<div class="stage">
-  <div class="chests" id="chests"></div>
+<div class="scene" id="scene">
+  <img class="scene-img desk" src="img/scene-desktop.jpg" alt="" />
+  <img class="scene-img mob" src="img/scene-mobile.jpg" alt="" />
+
+  <div class="head">
+    <p class="kicker">לכבוד ט״ו באב · חג האהבה</p>
+    <h1 class="serif">בחרי את תיבת האוצר שלך</h1>
+    <p class="sub">שלוש תיבות אוצר חבויות במינרלים של ים המלח. בחרי אחת, וגלי את המתנה שנבראה עבורך.</p>
+  </div>
+
+  <div class="fx" id="fx"><span class="ring"></span></div>
+
+  <button class="pick d1" data-i="0">גלי את המתנה <span class="ar">‹</span></button>
+  <button class="pick d2" data-i="1">גלי את המתנה <span class="ar">‹</span></button>
+  <button class="pick d3" data-i="2">גלי את המתנה <span class="ar">‹</span></button>
+  <button class="pick m1" data-i="0">גלי את המתנה <span class="ar">‹</span></button>
+  <button class="pick m2" data-i="1">גלי את המתנה <span class="ar">‹</span></button>
+  <button class="pick m3" data-i="2">גלי את המתנה <span class="ar">‹</span></button>
 </div>
 
-<div class="reveal" id="reveal">
-  <div class="card" id="card"></div>
-</div>
-<div class="toast" id="toast">✓ Code copied</div>
+<div class="reveal" id="reveal"><div class="card" id="card"></div></div>
+<div class="toast" id="toast">✓ הקוד הועתק</div>
 
 <script>
-const STORE  = "https://www.ahava.co.il";
-const COUPON = "AHAVA";
-const cartUrl = vid => STORE + "/discount/" + COUPON + "?redirect=" +
-  encodeURIComponent("/cart/" + vid + ":1?utm_source=treasures&utm_medium=referral&utm_campaign=dead-sea-treasures");
+const STORE="https://www.ahava.co.il", COUPON="AHAVA";
+const cartUrl=vid=>STORE+"/discount/"+COUPON+"?redirect="+encodeURIComponent("/cart/"+vid+":1?utm_source=treasures&utm_medium=referral&utm_campaign=dead-sea-treasures");
 
-const TREASURES = [
-  { roman:"I",  name:"Crystal Osmoter™ X6 Serum",
-    desc:"An intense surge of Dead Sea minerals for a luminous, glass-skin glow.",
-    vid:"40565506113722",
-    img:"https://cdn.shopify.com/s/files/1/0560/1833/7978/files/CrystalOsmoterTMX6Serum-product-image.png?v=1699774042" },
-  { roman:"II", name:"Osmoter™ Concentrate Cream",
-    desc:"Featherlight mineral hydration with all-day comfort and blue-light defense.",
-    vid:"40575795527866",
-    img:"https://cdn.shopify.com/s/files/1/0560/1833/7978/files/YB-OsmoterConcentrateHydratingCream3.png?v=1733730115" },
-  { roman:"III",name:"Softening Butter Salt Scrub",
-    desc:"A buttery Dead Sea salt scrub that melts into silk for body and soul.",
-    vid:"40565514600634",
-    img:"https://cdn.shopify.com/s/files/1/0560/1833/7978/products/softening-butter-dead-sea-salt-scrub.png?v=1636622131" }
+const TREASURES=[
+  {name:"סרום קריסטל Osmoter™ X6", desc:"מנת מינרלים מרוכזת מים המלח לזוהר 'עור זכוכית' קורן.",
+   vid:"40565506113722", img:"https://cdn.shopify.com/s/files/1/0560/1833/7978/files/CrystalOsmoterTMX6Serum-product-image.png?v=1699774042"},
+  {name:"קרם לחות Osmoter™ מרוכז", desc:"לחות מינרלית קלילה והגנה מאור כחול לאורך כל היום.",
+   vid:"40575795527866", img:"https://cdn.shopify.com/s/files/1/0560/1833/7978/files/YB-OsmoterConcentrateHydratingCream3.png?v=1733730115"},
+  {name:"פילינג חמאת מלח", desc:"פילינג חמאתי שמתמוסס למגע משיי - טקס פינוק לגוף ולנפש.",
+   vid:"40565514600634", img:"https://cdn.shopify.com/s/files/1/0560/1833/7978/products/softening-butter-dead-sea-salt-scrub.png?v=1636622131"}
 ];
 
-const CLOSED = "img/chest-closed.png";
-const OPEN   = "img/chest-open.png";
+const scene=document.getElementById("scene"), fx=document.getElementById("fx");
+const reveal=document.getElementById("reveal"), card=document.getElementById("card");
+// build sparkle particles once
+for(let k=0;k<16;k++){const a=k/16*6.283,r=70+(k%3)*26;const s=document.createElement("span");
+  s.className="sp";s.style.setProperty("--dx",(Math.cos(a)*r).toFixed(0)+"px");
+  s.style.setProperty("--dy",(Math.sin(a)*r).toFixed(0)+"px");s.style.animationDelay=(k%5)*40+"ms";fx.appendChild(s);}
 
-const chests = document.getElementById("chests");
-chests.innerHTML = TREASURES.map((t,i)=>`
-  <button class="chest" data-i="${i}" aria-label="Treasure ${t.roman}">
-    <span class="float">
-      <span class="lid">
-        <img class="closed" src="${CLOSED}" alt="" />
-        <img class="open" src="${OPEN}" alt="" />
-        <span class="glow"></span>
-        ${Array.from({length:14},(_,k)=>{const a=k/14*6.283,r=58+(k%3)*22;
-          return `<span class="spark" style="--dx:${(Math.cos(a)*r).toFixed(0)}px;--dy:${(Math.sin(a)*r-30).toFixed(0)}px;animation-delay:${(k%5)*40}ms"></span>`;}).join("")}
-      </span>
-    </span>
-    <span class="label"><span class="thint">Treasure ${t.roman}</span><br><span class="tname serif">Open me</span></span>
-  </button>`).join("");
-
-let opening=false;
-chests.querySelectorAll(".chest").forEach(el=>{
-  el.addEventListener("click",()=>{
-    if(opening||el.classList.contains("opened")) return;
-    opening=true;
-    el.classList.add("burst");
-    setTimeout(()=>el.classList.add("opened"),420);
-    setTimeout(()=>{ showGift(+el.getAttribute("data-i")); opening=false; },1000);
+let busy=false;
+document.querySelectorAll(".pick").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    if(busy) return; busy=true;
+    // place fx over the clicked button's chest
+    const cs=getComputedStyle(btn);
+    fx.style.left=cs.left; fx.style.top="calc("+cs.top+" - 70px)";
+    fx.classList.remove("go"); void fx.offsetWidth; fx.classList.add("go");
+    setTimeout(()=>{ showGift(+btn.getAttribute("data-i")); busy=false; },820);
   });
 });
 
-const reveal=document.getElementById("reveal"), card=document.getElementById("card");
 function showGift(i){
   const t=TREASURES[i];
   card.innerHTML=`
-    <img class="gift-img" src="${t.img}" alt="${t.name}" />
-    <p class="reveal-k">Your Treasure</p>
+    <div class="gift-img-wrap"><img src="${t.img}" alt="${t.name}" /></div>
+    <p class="reveal-k">המתנה שלך</p>
     <h2 class="gift-name serif">${t.name}</h2>
     <p class="gift-desc">${t.desc}</p>
-    <div class="coupon"><div class="cl">Your gift code</div><div class="cc">${COUPON}</div></div>
-    <button class="btn" id="claim">Claim Your Gift &amp; Continue Shopping</button>
-    <span class="again" id="again">‹ Choose another treasure</span>`;
+    <div class="coupon"><div class="cl">קוד המתנה שלך</div><div class="cc">${COUPON}</div></div>
+    <button class="btn" id="claim">קבלי את המתנה והמשיכי לקנייה</button>
+    <span class="again" id="again">‹ בחרי תיבה אחרת</span>`;
   reveal.classList.add("on");
   document.getElementById("claim").onclick=()=>{
     try{navigator.clipboard.writeText(COUPON);}catch(e){}
-    toast();
-    setTimeout(()=>{ window.location.href=cartUrl(t.vid); },650);
+    const to=document.getElementById("toast");to.classList.add("on");setTimeout(()=>to.classList.remove("on"),1800);
+    setTimeout(()=>{window.location.href=cartUrl(t.vid);},700);
   };
-  document.getElementById("again").onclick=closeReveal;
+  document.getElementById("again").onclick=()=>reveal.classList.remove("on");
 }
-function closeReveal(){
-  reveal.classList.remove("on");
-  chests.querySelectorAll(".chest").forEach(el=>el.classList.remove("burst","opened"));
-}
-reveal.addEventListener("click",e=>{ if(e.target===reveal) closeReveal(); });
-let tT;
-function toast(){const t=document.getElementById("toast");t.classList.add("on");clearTimeout(tT);tT=setTimeout(()=>t.classList.remove("on"),1800);}
+reveal.addEventListener("click",e=>{if(e.target===reveal)reveal.classList.remove("on");});
 </script>
 </body>
 </html>
