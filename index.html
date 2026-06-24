@@ -103,8 +103,14 @@
 
   /* ---------- PROGRESS ---------- */
   .topbar{display:flex;align-items:center;gap:14px;padding:18px 22px 0}
-  .back{background:none;border:none;color:var(--faint);font-size:24px;cursor:pointer;line-height:1;padding:2px 6px;border-radius:8px}
-  .back:hover{color:var(--gold)}
+  .back{display:inline-flex;align-items:center;gap:5px;background:var(--inset);border:1px solid var(--line);color:var(--ink2);font-family:"Assistant";font-size:13px;font-weight:600;cursor:pointer;line-height:1;padding:7px 13px;border-radius:999px}
+  .back:hover{border-color:var(--gold);color:var(--ink)}
+  .back .bk{color:var(--gold);font-size:15px}
+  .stars{display:inline-flex;align-items:center;gap:1px;margin-top:6px}
+  .stars .st{color:var(--line);font-size:12px;line-height:1}
+  .stars .st.on{color:var(--gold)}
+  .stars .snum{font-size:11px;color:var(--muted);margin-right:5px;font-weight:700}
+  .minerals{text-align:center;font-size:11.5px;letter-spacing:.04em;color:var(--gold);font-weight:600;margin:14px 0 2px}
   .dots{display:flex;gap:9px;flex:1;justify-content:center}
   .dots span{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .25s,transform .25s}
   .dots span.on{background:var(--gold);transform:scale(1.25)}
@@ -268,22 +274,22 @@ const MATCHES = {
     style:"הרכה", name:"שלווה ושקט",
     tagline:"שלווה, רכות וביטחון — האהבה שעוטפת אותך בלי כובד.",
     reading:"לפי התשובות שלך, את מחפשת רוגע ורכות — רגע שקט שמרגיש כמו בית. בחרנו עבורך זוג קליל ומרגיע: לחות מינרלית שמעניקה נוחות לאורך כל היום, ולצידה תחליב גוף עדין עם ניחוח ים שליו. הכול בלי כובד — בדיוק כמו שאת אוהבת.",
-    hero:{vid:"40575795527866", bottle:"Osmoter\nקרם", line:"Osmoter Concentrate", name:"קרם לחות Osmoter™ מרוכז", why:"לחות מינרלית קלילה והגנה מאור כחול — נוחות לאורך כל היום.", price:264},
-    mate:{vid:"40575802638522", bottle:"תחליב\nגוף", line:"Mineral Body", name:"תחליב גוף מינרלי Sea-Kissed", why:"נספג מהר, ניחוח ים שליו — רכות בלי כובד.", price:149}
+    hero:{vid:"40575795527866", bottle:"Osmoter\nקרם", line:"Osmoter Concentrate", name:"קרם לחות Osmoter™ מרוכז", why:"לחות מינרלית קלילה והגנה מאור כחול — נוחות לאורך כל היום.", price:264, rating:4.9},
+    mate:{vid:"40575802638522", bottle:"תחליב\nגוף", line:"Mineral Body", name:"תחליב גוף מינרלי Sea-Kissed", why:"נספג מהר, ניחוח ים שליו — רכות בלי כובד.", price:149, rating:5.0}
   },
   radiant: {  /* Pair 2 — "Radiant Energy" (track ב' / ד'-רענן) */
     style:"הקורנת", name:"זוהר ואנרגיה",
     tagline:"זוהר, אנרגיה וחיוניות — האור שמוקרן ממך החוצה.",
     reading:"לפי התשובות שלך, העור שלך משתוקק לאור. בחרנו עבורך זוג שמדליק את הזוהר הטבעי: סרום הקריסטל למראה 'עור זכוכית' קורן, ולצידו סרום עיניים שמפחית נפיחות ומאיר את המבט. בוקר ער, רענן ומלא חיים.",
-    hero:{vid:"40565506113722", bottle:"סרום\nקריסטל", line:"Crystal Osmoter X6", name:"סרום קריסטל Osmoter™ X6", why:"הירו של הזוהר — מראה 'עור זכוכית', ברק טבעי וחיוניות.", price:314},
-    mate:{vid:"45358634827962", bottle:"סרום\nעיניים", line:"Osmoter Eye", name:"סרום עיניים Osmoter™ מרוכז", why:"מפחית נפיחות וכהויות ומאיר — מבט ער ורענן.", price:229}
+    hero:{vid:"40565506113722", bottle:"סרום\nקריסטל", line:"Crystal Osmoter X6", name:"סרום קריסטל Osmoter™ X6", why:"הירו של הזוהר — מראה 'עור זכוכית', ברק טבעי וחיוניות.", price:314, rating:4.8},
+    mate:{vid:"45358634827962", bottle:"סרום\nעיניים", line:"Osmoter Eye", name:"סרום עיניים Osmoter™ מרוכז", why:"מפחית נפיחות וכהויות ומאיר — מבט ער ורענן.", price:229, rating:4.8}
   },
   pampering: {  /* Pair 3 — "Wrapped Pampering" (track ג' / ד'-גוף) */
     style:"המפנקת", name:"פינוק עוטף",
     tagline:"פינוק עשיר ועוטף — אהבה עמוקה מהמקלחת ועד הלילה.",
     reading:"לפי התשובות שלך, העור שלך מחפש את התחושה העוטפת והמפנקת ביותר. בחרנו עבורך זוג עשיר: קרם הקריסטל העשיר ללחות אינטנסיבית וזוהר מיידי, ולצידו פילינג חמאת מלח שמתמוסס למגע חמאתי ומלטף — טקס שלם שמרגיע גוף ונפש.",
-    hero:{vid:"40737881915578", bottle:"קרם\nקריסטל", line:"Crystal Osmoter X6", name:"קרם פנים קריסטל Osmoter™ X6", why:"קרם פנים עשיר ועוטף — לחות אינטנסיבית וזוהר מיידי.", price:307},
-    mate:{vid:"40565514600634", bottle:"פילינג\nחמאתי", line:"Dead Sea Scrub", name:"פילינג חמאת מלח", why:"פילינג חמאתי שמתמוסס למגע משיי ומלטף — טקס מהמקלחת ועד הלילה.", price:124}
+    hero:{vid:"40737881915578", bottle:"קרם\nקריסטל", line:"Crystal Osmoter X6", name:"קרם פנים קריסטל Osmoter™ X6", why:"קרם פנים עשיר ועוטף — לחות אינטנסיבית וזוהר מיידי.", price:307, rating:4.7},
+    mate:{vid:"40565514600634", bottle:"פילינג\nחמאתי", line:"Dead Sea Scrub", name:"פילינג חמאת מלח", why:"פילינג חמאתי שמתמוסס למגע משיי ומלטף — טקס מהמקלחת ועד הלילה.", price:124, rating:4.9}
   }
 };
 
@@ -320,7 +326,8 @@ const LETTERS = ["א","ב","ג","ד"];
 let state = { step:"landing", qIndex:0, votes:[] };
 const stage = document.getElementById("stage");
 const money = n => "₪" + n.toLocaleString("he-IL");
-const ORN = `<div class="orn"><span class="rule"></span><span class="star">✦</span><span class="rule"></span></div>`;
+const ORN = `<div class="orn"><span class="rule"></span><span class="star">♥</span><span class="rule"></span></div>`;
+const stars = r => { let f=Math.round(r||0), s=""; for(let i=1;i<=5;i++) s+=`<span class="st${i<=f?" on":""}">★</span>`; return `<span class="stars">${s}<span class="snum">${Number(r).toFixed(1)}</span></span>`; };
 
 function render(){
   stage.classList.remove("fade"); void stage.offsetWidth; stage.classList.add("fade");
@@ -336,9 +343,11 @@ function renderLanding(){
       <div class="hp-logo">AHAVA</div>
     </div>
     <div class="pad" style="padding-top:22px">
-      <p class="hp-kicker">לכבוד ט״ו באב · חג האהבה</p>
+      <p class="hp-kicker">♥ &nbsp;לכבוד ט״ו באב · חג האהבה &nbsp;♥</p>
       <h1 class="hero-h1">מצאי את <span class="accent">השידוך המושלם</span> לעור שלך</h1>
-      <p class="lead" style="margin-top:12px">אנחנו מאמינים שאהבה אמיתית מתחילה כשאת מרגישה הכי בנוח עם עצמך. עני על 4 שאלות קצרות, ונשדך לך את שגרת הטיפוח שתרגיש לך הכי טבעית, נעימה ומדויקת — כזו שנועדה לחגוג את האישה שאת היום, מחר ובכל יום שתבחרי.</p>
+      ${ORN}
+      <p class="lead">אנחנו מאמינים שאהבה אמיתית מתחילה כשאת מרגישה הכי בנוח עם עצמך. עני על 4 שאלות קצרות, ונשדך לך את שגרת הטיפוח — על בסיס מינרלים מים המלח — שתרגיש לך הכי טבעית, נעימה ומדויקת.</p>
+      <div class="minerals">♥ אהבה &nbsp;·&nbsp; ✦ מינרלים מים המלח &nbsp;·&nbsp; ◇ טבע טהור</div>
       <div class="promise">
         <span>4 שאלות קצרות</span><span class="dot"></span>
         <span>פחות מדקה</span><span class="dot"></span>
@@ -355,7 +364,7 @@ function renderQuestion(){
   const dots = Array.from({length:total},(_,i)=>`<span class="${i<=state.qIndex?"on":""}"></span>`).join("");
   stage.innerHTML = `
     <div class="topbar">
-      <button class="back" onclick="goBack()" aria-label="חזרה">›</button>
+      <button class="back" onclick="goBack()" aria-label="חזרה"><span class="bk">›</span> חזרה</button>
       <div class="dots">${dots}</div>
       <div class="qcount">${state.qIndex+1} / ${total}</div>
     </div>
@@ -389,6 +398,7 @@ function renderResult(){
           <div class="pinfo">
             <div class="pline">${p.line}</div>
             <div class="pname">${p.name}</div>
+            ${stars(p.rating)}
             <div class="pwhy">${p.why}</div>
             ${priceRow(p)}
           </div>
@@ -411,7 +421,7 @@ function renderResult(){
 
       <!-- Prominent coupon box (brief screen 7) -->
       <div class="coupon">
-        <div class="c-gift">מתנת ט״ו באב שלך</div>
+        <div class="c-gift">♥ &nbsp;מתנת ט״ו באב שלך &nbsp;♥</div>
         <div class="c-head">הנה ה‑30% הנחה שלך לחגיגת ט״ו באב!</div>
         <div class="c-pill" onclick="copyCode()" id="copyPill">
           <span class="c-lbl">קוד קופון:</span>
