@@ -141,10 +141,10 @@
     background-size:cover;background-position:center;background-color:var(--sand)}
   .result-photo .rp-scrim{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
     padding:22px 24px 18px;text-align:center;
-    background:linear-gradient(to top, var(--sand) 3%, rgba(239,231,217,.85) 26%, transparent 62%)}
+    background:linear-gradient(to top, var(--sand) 6%, rgba(239,231,217,.94) 34%, rgba(239,231,217,.55) 58%, transparent 80%)}
   .result-band{background:var(--sand);text-align:center;padding:6px 24px 26px;border-bottom:1px solid var(--line)}
-  .love-style{font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:700;margin:0 0 6px}
-  .result-intro{font-size:13px;color:var(--muted);margin:0 0 4px;font-weight:400}
+  .love-style{font-size:11px;letter-spacing:.2em;color:var(--ink);font-weight:800;margin:0 0 6px}
+  .result-intro{font-size:13px;color:var(--ink2);margin:0 0 4px;font-weight:600}
   .result-name{font-size:29px;line-height:1.14;margin:2px 0 12px}
   .result-tag{color:var(--ink2);font-size:15px;line-height:1.6;margin:0 auto;max-width:400px;font-weight:400;font-family:"Assistant",sans-serif}
 
@@ -256,7 +256,9 @@ function loadAnalytics(){
 /* real cart permalink on ahava.co.il, AHAVA discount auto-applied + quiz UTMs */
 function cartUrl(vids){
   var items = vids.filter(Boolean).map(function(v){return v+":1";}).join(",");
-  return STORE+"/cart/"+items+"?discount="+COUPON+"&utm_source=quiz&utm_medium=referral&utm_campaign="+QUIZ_ID;
+  // /discount/{CODE}?redirect=… sets the AHAVA discount then adds to cart → visible in cart, not only checkout
+  var redirect = "/cart/"+items+"?utm_source=quiz&utm_medium=referral&utm_campaign="+QUIZ_ID;
+  return STORE+"/discount/"+COUPON+"?redirect="+encodeURIComponent(redirect);
 }
 
 /* ---- 3 personas (results). Each = a PAIR: hero + cheaper complement.
@@ -279,9 +281,9 @@ const MATCHES = {
   pampering: {  /* Pair 3 — "Wrapped Pampering" (track ג' / ד'-גוף) */
     style:"המפנקת", name:"פינוק עוטף",
     tagline:"פינוק עשיר ועוטף — אהבה עמוקה מהמקלחת ועד הלילה.",
-    reading:"לפי התשובות שלך, העור שלך מחפש את התחושה העוטפת והמפנקת ביותר. בחרנו עבורך זוג עשיר: קרם הקריסטל העשיר ללחות אינטנסיבית וזוהר מיידי, ולצידו פילינג חמאת מלח שנמס ללושן — טקס שלם שמרגיע גוף ונפש.",
+    reading:"לפי התשובות שלך, העור שלך מחפש את התחושה העוטפת והמפנקת ביותר. בחרנו עבורך זוג עשיר: קרם הקריסטל העשיר ללחות אינטנסיבית וזוהר מיידי, ולצידו פילינג חמאת מלח שמתמוסס למגע חמאתי ומלטף — טקס שלם שמרגיע גוף ונפש.",
     hero:{vid:"40737881915578", bottle:"קרם\nקריסטל", line:"Crystal Osmoter X6", name:"קרם פנים קריסטל Osmoter™ X6", why:"קרם פנים עשיר ועוטף — לחות אינטנסיבית וזוהר מיידי.", price:307},
-    mate:{vid:"40565514600634", bottle:"פילינג\nחמאתי", line:"Dead Sea Scrub", name:"פילינג חמאת מלח", why:"פילינג חמאתי שנמס ללושן — טקס מהמקלחת ועד הלילה.", price:124}
+    mate:{vid:"40565514600634", bottle:"פילינג\nחמאתי", line:"Dead Sea Scrub", name:"פילינג חמאת מלח", why:"פילינג חמאתי שמתמוסס למגע משיי ומלטף — טקס מהמקלחת ועד הלילה.", price:124}
   }
 };
 
@@ -416,7 +418,7 @@ function renderResult(){
           <span class="c-code">${COUPON}</span>
           <span class="c-copy" id="copyState">העתקה ‹</span>
         </div>
-        <div class="c-note">לחצי להעתקה · הקוד יחכה לך גם במייל</div>
+        <div class="c-note">לחצי להעתקה</div>
       </div>
 
       <div class="reading">${m.reading}</div>
